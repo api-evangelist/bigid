@@ -1,0 +1,37 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: BigID
+providerId: bigid
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - BigID
+  - Rate Limiting
+  - Authentication
+description: >-
+  BigID is a customer-deployed platform (SaaS-hosted by BigID for some
+  customers, self-hosted on Kubernetes for others), so REST API rate limits are
+  determined by the deployment's scanner and orchestrator capacity rather than
+  a published per-tier table. The constraints captured here are the
+  authentication and token-lifetime limits documented in BigID's developer
+  portal, which apply across all deployments.
+sources:
+  - https://developer.bigid.com/api/bigid-api-token-authentication/
+  - https://developer.bigid.com/api/bigid-api-user-authentication/
+algorithm: deployment-dependent
+authentication:
+  userTokenMaxLifetime: 999 days
+  systemTokenLifetime: short-lived (refreshed via /api/v1/refresh-access-token)
+  tokenScope: per-user, scoped by the user's BigID role and permissions
+  tokenVisibility: user-token value is shown only once on creation; must be stored securely
+responseCodes:
+  unauthorized: 401
+  forbidden: 403
+  throttled: 429
+notes:
+  - 'Per-endpoint rate limits are not published in the BigID developer portal.'
+  - 'Customers self-host or BigID-host; throughput depends on scanner count, scanner-group sizing, and orchestrator HA topology.'
+  - 'Long-running scan operations should be polled via /api/v1/scans/{scan_id}/status rather than retried.'
+  - 'DSAR report generation is asynchronous; clients should poll /api/v1/sar/reports/{requestId}/status.'

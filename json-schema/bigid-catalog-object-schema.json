@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/bigid/bigid-catalog-object-schema.json",
+  "title": "BigID Catalog Object",
+  "description": "Schema describing a single object record in the BigID Data Catalog. Returned by GET /api/v1/data-catalog and related catalog endpoints.",
+  "type": "object",
+  "properties": {
+    "objectName": {
+      "type": "string",
+      "description": "The display name of the object (e.g. file or table name)."
+    },
+    "objectId": {
+      "type": "string",
+      "description": "Internal BigID object identifier."
+    },
+    "type": {
+      "type": "string",
+      "description": "Object type (file, table, column, container, model, prompt)."
+    },
+    "source": {
+      "type": "string",
+      "description": "The data source the object was discovered in."
+    },
+    "fullObjectName": {
+      "type": "string",
+      "description": "Fully-qualified object name including container and source."
+    },
+    "attribute": {
+      "type": "array",
+      "description": "Classifier attributes attached to the object.",
+      "items": { "type": "string" }
+    },
+    "has_duplicates": {
+      "type": "boolean",
+      "description": "Whether duplicates of this object exist in the catalog."
+    },
+    "duplicate_id": {
+      "type": "string",
+      "description": "Identifier shared by all duplicates of this object."
+    },
+    "scanner_type_group": {
+      "type": "string",
+      "description": "Scanner family that produced this object (e.g. database, file, cloud-storage)."
+    },
+    "update_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time the object's metadata was updated."
+    }
+  }
+}

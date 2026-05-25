@@ -1,0 +1,169 @@
+openapi: 3.0.3
+info:
+  title: BigID Data Posture API
+  description: >-
+    Fetch and remediate Data Security Posture Management (DSPM) findings via
+    BigID's actionable insights API. List open security cases, update status in
+    bulk, and resolve individual cases with audit reasons.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+  - url: https://{deployment}.bigid.com/api/v1
+    description: Customer-hosted BigID deployment.
+    variables:
+      deployment:
+        default: tenant
+tags:
+  - name: Actionable Insights
+    description: DSPM cases and remediation.
+paths:
+  /actionable-insights/all-cases:
+    get:
+      tags:
+        - Actionable Insights
+      operationId: listActionableInsightsCases
+      summary: List Actionable Insights Cases
+      description: >-
+        Fetch all existing security issues. Limit the selection with query
+        parameters that filter by severity, status, asset type, or policy.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: skip
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cases retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      cases:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Case'
+  /actionable-insights/cases:{actionType}:
+    patch:
+      tags:
+        - Actionable Insights
+      operationId: bulkUpdateActionableInsightsCases
+      summary: Bulk Update Actionable Insights Cases
+      description: Mark issues as resolved or update field values in bulk based on a filter expression.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: actionType
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - resolve
+              - update
+              - acknowledge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filter:
+                  type: string
+                update:
+                  type: object
+      responses:
+        '200':
+          description: Update accepted.
+  /actionable-insights/case-status/{caseId}:
+    patch:
+      tags:
+        - Actionable Insights
+      operationId: updateActionableInsightsCaseStatus
+      summary: Update Actionable Insights Case Status
+      description: Update the status of a specific case (e.g. resolved) with an audit reason.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: caseId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - open
+                    - resolved
+                    - silenced
+                    - acknowledged
+                auditReason:
+                  type: string
+      responses:
+        '200':
+          description: Case status updated.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Case:
+      type: object
+      properties:
+        caseId:
+          type: string
+        caseStatus:
+          type: string
+          enum:
+            - open
+            - resolved
+            - silenced
+            - acknowledged
+        severityLevel:
+          type: string
+          enum:
+            - critical
+            - high
+            - medium
+            - low
+        policyName:
+          type: string
+        dataSourceName:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        auditReason:
+          type: string

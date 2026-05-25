@@ -1,0 +1,78 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: BigID
+providerId: bigid
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - DSPM
+  - Privacy
+description: >-
+  FOCUS-aligned FinOps definition for BigID. BigID is licensed via annual
+  enterprise subscriptions priced on data-source count, environment count, and
+  pillars licensed; there is no usage-based metering published in the developer
+  portal. Customers running BigID self-hosted on Kubernetes also incur
+  infrastructure cost on the underlying cloud(s).
+sources:
+  - https://bigid.com/data-security-platform/
+  - https://bigid.com/privacy-automation-suite/
+  - https://bigid.com/ai-security-and-governance/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: BigID Inc.
+serviceCategory: Security
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+  primaryUnit: subscription
+  secondaryUnits:
+    - data-source
+    - scanner
+    - environment
+focusColumns:
+  ServiceName: BigID Platform
+  ServiceCategory: Security
+  ProviderName: BigID
+  PublisherName: BigID Inc.
+  InvoiceIssuerName: BigID Inc.
+  PricingCategory: Subscription
+  PricingUnit: subscription-year
+  BillingCurrency: USD
+meters:
+  - name: data_source_count
+    unit: data-source
+    aggregation: max
+    dimensions:
+      - environment
+      - pillar
+    description: Number of distinct data sources connected and scanned during the billing period.
+  - name: environment_count
+    unit: environment
+    aggregation: max
+    dimensions:
+      - cloud
+      - region
+    description: Number of cloud/on-prem environments the BigID deployment covers.
+  - name: scanner_count
+    unit: scanner
+    aggregation: max
+    dimensions:
+      - scanner_group
+    description: Number of scanner pods/containers deployed; drives infrastructure cost for self-hosted customers.
+notes:
+  - 'BigID does not publish a public price book. Plans/pricing capture commercial pillars (DSP, Privacy, AI Security, Catalog) with contact-sales pricing.'
+  - 'For self-hosted deployments the underlying cloud infrastructure (Kubernetes, storage, network egress) is billed by the hyperscaler, not BigID.'
+  - 'No usage-based API metering is exposed in the public developer portal.'

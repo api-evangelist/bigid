@@ -1,0 +1,60 @@
+extends:
+  - spectral:oas
+overrides: []
+rules:
+  bigid-operation-summary-title-case:
+    description: Operation summaries should be Title Case, matching BigID developer-portal style.
+    message: '{{property}} summary should use Title Case.'
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][A-Za-z0-9]*)( [A-Z][A-Za-z0-9]*)*$'
+
+  bigid-operation-must-have-operation-id:
+    description: All operations must declare an operationId so SDK generators and Naftiko bindings can resolve them.
+    message: 'Operation is missing operationId.'
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+
+  bigid-paths-kebab-or-snake-case:
+    description: BigID API paths use either kebab-case or snake_case; mixed casing inside a segment is discouraged.
+    message: '{{property}} should be kebab-case or snake_case.'
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/[a-z0-9{}_/.:-]+$'
+
+  bigid-bearer-auth-declared:
+    description: Each API must declare a Bearer JWT security scheme reflecting BigID's auth_token / systemToken pattern.
+    message: 'BearerAuth security scheme must be present.'
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      field: BearerAuth
+      function: truthy
+
+  bigid-tags-required:
+    description: Every operation should be tagged so the BigID developer portal can group it.
+    message: 'Operation must declare at least one tag.'
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  bigid-server-baseurl-includes-api-v1:
+    description: BigID REST APIs are versioned under /api/v1; servers should reflect that prefix.
+    message: 'Server URL should include /api/v1.'
+    severity: info
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '/api/v1'

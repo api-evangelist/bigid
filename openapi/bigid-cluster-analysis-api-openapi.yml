@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: BigID Cluster Analysis API
+  description: >-
+    Retrieve clusters of similar data identified by BigID's cluster-analysis
+    engine. Clusters group structurally or semantically similar columns and
+    objects across data sources to support deduplication, retention, and
+    minimization workflows.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+  - url: https://{deployment}.bigid.com/api/v1
+    description: Customer-hosted BigID deployment.
+    variables:
+      deployment:
+        default: tenant
+tags:
+  - name: Clusters
+    description: Cluster analysis operations.
+paths:
+  /clusters:
+    get:
+      tags:
+        - Clusters
+      operationId: listClusters
+      summary: List Clusters
+      description: Retrieve a list of clusters with optional filtering.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Clusters retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      clusters:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Cluster'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Cluster:
+      type: object
+      properties:
+        clusterId:
+          type: string
+        clusterName:
+          type: string
+        type:
+          type: string
+        size:
+          type: integer
+        members:
+          type: array
+          items:
+            type: string
+        attribute:
+          type: array
+          items:
+            type: string

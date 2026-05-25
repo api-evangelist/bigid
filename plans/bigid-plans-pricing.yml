@@ -1,0 +1,115 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: BigID
+providerId: bigid
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - DSPM
+  - Privacy
+  - AI Security
+  - Data Governance
+description: >-
+  BigID does not publish a self-serve price list. Commercial offerings are quoted
+  per customer based on number of data sources, data volume scanned, environment
+  count (cloud, on-prem, hybrid), and which BigID pillars (Data Security
+  Platform, Privacy Automation, AI Security, Data & AI Catalog) are licensed.
+  Captured below are the publicly named offerings as commercial plans with
+  contact-us pricing.
+sources:
+  - https://bigid.com/data-security-platform/
+  - https://bigid.com/privacy-automation-suite/
+  - https://bigid.com/ai-security-and-governance/
+  - https://bigid.com/contact/
+plans:
+  - id: bigid-data-security-platform
+    name: BigID Data Security Platform (DSP)
+    type: contact-sales
+    description: >-
+      DSPM, DLP, access governance, and breach investigation across cloud, on-prem,
+      and hybrid data sources.
+    entries:
+      - label: License
+        name: dsp-license
+        type: enterprise
+        metric: contract
+        limit: -1
+        timeFrame: annual
+        geo: global
+        unit: 1
+        price: Contact Sales
+        userMultiplied: false
+    elements:
+      - name: DSPM with risk alerts and remediation delegation
+      - name: ML-enhanced DLP with custom labeling
+      - name: Access governance and zero-trust enablement
+      - name: Insider risk detection and investigation
+      - name: 1000+ pre-trained classifiers across 100+ languages
+  - id: bigid-privacy-automation-suite
+    name: BigID Privacy Automation Suite
+    type: contact-sales
+    description: >-
+      DSAR fulfillment, retention, deletion, consent, and regulatory compliance automation.
+    entries:
+      - label: License
+        name: privacy-license
+        type: enterprise
+        metric: contract
+        limit: -1
+        timeFrame: annual
+        geo: global
+        unit: 1
+        price: Contact Sales
+        userMultiplied: false
+    elements:
+      - name: Automated DSAR fulfillment with 190,000+ out-of-the-box retention policies
+      - name: Consent and preference management
+      - name: Cross-border data transfer mapping
+      - name: HIPAA, GDPR, CCPA, LGPD compliance reporting
+  - id: bigid-ai-security-and-governance
+    name: BigID AI Security & Governance (AISPM)
+    type: contact-sales
+    description: >-
+      Shadow AI detection, model inventory, prompt and response governance,
+      and TRiSM (Trust, Risk, and Security Management for AI).
+    entries:
+      - label: License
+        name: ai-security-license
+        type: enterprise
+        metric: contract
+        limit: -1
+        timeFrame: annual
+        geo: global
+        unit: 1
+        price: Contact Sales
+        userMultiplied: false
+    elements:
+      - name: AI model inventory and lineage
+      - name: Shadow AI detection (employee tool usage)
+      - name: Prompt and response governance
+      - name: AI risk management aligned to NIST AI RMF
+      - name: Protect training data and model artifacts from exfiltration
+  - id: bigid-data-and-ai-catalog
+    name: BigID Data & AI Catalog
+    type: contact-sales
+    description: >-
+      Unified catalog of structured and unstructured data, AI models, prompts,
+      and agents. Integrates with Collibra, Alation, Informatica, and Atlan.
+    entries:
+      - label: License
+        name: catalog-license
+        type: enterprise
+        metric: contract
+        limit: -1
+        timeFrame: annual
+        geo: global
+        unit: 1
+        price: Contact Sales
+        userMultiplied: false
+    elements:
+      - name: 100+ data source connectors (cloud, SaaS, on-prem, dev)
+      - name: AI-powered classification across 100+ languages
+      - name: Federation with third-party catalogs
+      - name: Custom connector framework (Java and REST)

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/bigid/bigid-data-source-schema.json",
+  "title": "BigID Data Source",
+  "description": "Schema describing a BigID data source connection. Used as the body for POST /api/v1/ds_connections and as a member of the list returned by GET /api/v1/ds-connections.",
+  "type": "object",
+  "required": ["name", "type"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name for the data source."
+    },
+    "type": {
+      "type": "string",
+      "description": "Connector template type (e.g. rdb-mysql, s3-v2, snowflake, sharepoint-online)."
+    },
+    "location": {
+      "type": "string",
+      "description": "Hostname or URI of the data source."
+    },
+    "username": {
+      "type": "string",
+      "description": "Username used to authenticate with the data source."
+    },
+    "password": {
+      "type": "string",
+      "description": "Password used to authenticate with the data source. Stored encrypted by BigID."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Optional scope restricting which schemas, tables, or objects to scan."
+    },
+    "enabled": {
+      "type": "string",
+      "enum": ["yes", "no"],
+      "description": "Whether the data source is enabled for scanning."
+    },
+    "scanner_group": {
+      "type": "string",
+      "description": "Scanner group that should perform scans for this data source."
+    }
+  }
+}

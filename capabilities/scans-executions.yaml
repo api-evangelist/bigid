@@ -1,0 +1,178 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: BigID Scans — Executions
+  description: 'BigID Scans API — Executions. 4 operations to list, start, and monitor scans and parent-scan rollups.
+    Self-contained Naftiko capability covering one BigID business surface.'
+  tags:
+    - BigID
+    - Scans
+    - Execution
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      BIGID_BASE_URL: BIGID_BASE_URL
+      BIGID_SYSTEM_TOKEN: BIGID_SYSTEM_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: scans-executions
+      baseUri: '{{env.BIGID_BASE_URL}}'
+      description: BigID Scan Executions business capability.
+      resources:
+        - name: scans
+          path: /api/v1/scans
+          operations:
+            - name: listscans
+              method: GET
+              description: BigID List Scans
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: startscan
+              method: POST
+              description: BigID Start A Scan
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: parent-scans
+          path: /api/v1/scans/parent-scans
+          operations:
+            - name: listparentscans
+              method: GET
+              description: BigID List Parent Scans
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: scan-status
+          path: /api/v1/scans/{scan_id}/status
+          operations:
+            - name: getscanstatus
+              method: GET
+              description: BigID Get Scan Status
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: scan_id
+                  in: path
+                  type: string
+                  required: true
+      authentication:
+        type: bearer
+        value: '{{env.BIGID_SYSTEM_TOKEN}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: scans-executions-rest
+      port: 8080
+      description: REST adapter for BigID Scan Executions.
+      resources:
+        - path: /v1/scans
+          name: scans
+          description: REST surface for scans.
+          operations:
+            - method: GET
+              name: listscans
+              description: BigID List Scans
+              call: scans-executions.listscans
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: startscan
+              description: BigID Start A Scan
+              call: scans-executions.startscan
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/scans/parent-scans
+          name: parent-scans
+          description: REST surface for parent-scans.
+          operations:
+            - method: GET
+              name: listparentscans
+              description: BigID List Parent Scans
+              call: scans-executions.listparentscans
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/scans/{scan_id}/status
+          name: scan-status
+          description: REST surface for scan-status.
+          operations:
+            - method: GET
+              name: getscanstatus
+              description: BigID Get Scan Status
+              call: scans-executions.getscanstatus
+              with:
+                scan_id: rest.path.scan_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: scans-executions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for BigID Scan Executions.
+      tools:
+        - name: bigid-list-scans
+          description: BigID List Scans
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: scans-executions.listscans
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-start-scan
+          description: BigID Start A Scan
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: scans-executions.startscan
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-list-parent-scans
+          description: BigID List Parent Scans
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: scans-executions.listparentscans
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-get-scan-status
+          description: BigID Get Scan Status
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: scans-executions.getscanstatus
+          with:
+            scan_id: tools.scan_id
+          outputParameters:
+            - type: object
+              mapping: $.

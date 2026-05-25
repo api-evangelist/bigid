@@ -1,0 +1,84 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: BigID Cluster Analysis — Clusters
+  description: 'BigID Cluster Analysis API — Clusters. 1 operation to retrieve clusters of similar data discovered by
+    BigID. Self-contained Naftiko capability covering one BigID business surface.'
+  tags:
+    - BigID
+    - Clusters
+    - Analytics
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      BIGID_BASE_URL: BIGID_BASE_URL
+      BIGID_SYSTEM_TOKEN: BIGID_SYSTEM_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: cluster-analysis-clusters
+      baseUri: '{{env.BIGID_BASE_URL}}'
+      description: BigID Cluster Analysis business capability.
+      resources:
+        - name: clusters
+          path: /api/v1/clusters
+          operations:
+            - name: listclusters
+              method: GET
+              description: BigID List Clusters
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: filter
+                  in: query
+                  type: string
+                - name: limit
+                  in: query
+                  type: integer
+      authentication:
+        type: bearer
+        value: '{{env.BIGID_SYSTEM_TOKEN}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: cluster-analysis-clusters-rest
+      port: 8080
+      description: REST adapter for BigID Cluster Analysis.
+      resources:
+        - path: /v1/clusters
+          name: clusters
+          description: REST surface for clusters.
+          operations:
+            - method: GET
+              name: listclusters
+              description: BigID List Clusters
+              call: cluster-analysis-clusters.listclusters
+              with:
+                filter: rest.query.filter
+                limit: rest.query.limit
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: cluster-analysis-clusters-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for BigID Cluster Analysis.
+      tools:
+        - name: bigid-list-clusters
+          description: BigID List Clusters
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: cluster-analysis-clusters.listclusters
+          with:
+            filter: tools.filter
+            limit: tools.limit
+          outputParameters:
+            - type: object
+              mapping: $.

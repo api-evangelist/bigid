@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://tenant.bigid.com/api/v1/sar/reports",
+    "headers": {
+      "Authorization": "<systemToken>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "profileId": "65f4a8b9c2d3e4f5a6b7c8d9",
+      "userValues": [
+        { "attributeName": "email", "attributeValue": "jane.doe@example.com" },
+        { "attributeName": "fullName", "attributeValue": "Jane Doe" }
+      ],
+      "skipAlertOnNoData": false
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "requestId": "dsar-20260525-0001"
+    }
+  }
+}

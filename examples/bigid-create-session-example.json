@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://sandbox.bigid.tools/api/v1/sessions",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "username": "bigid",
+      "password": "learner"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "message": "Enjoy your token!",
+      "auth_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "username": "bigid",
+      "firstName": "BigID Admin",
+      "permissions": [
+        "ROOT",
+        "VIEW_DATA_SOURCES",
+        "MANAGE_DATA_SOURCES",
+        "RUN_SCANS"
+      ]
+    }
+  }
+}

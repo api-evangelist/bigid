@@ -1,0 +1,185 @@
+openapi: 3.0.3
+info:
+  title: BigID DSAR API
+  description: >-
+    Run Data Subject Access Requests (DSARs) and retrieve the resulting reports
+    via the BigID API. Inspect available DSAR profiles and identifier attributes,
+    submit new DSAR scans, poll status, and download short or full DSAR reports
+    in JSON or CSV.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+  - url: https://{deployment}.bigid.com/api/v1
+    description: Customer-hosted BigID deployment.
+    variables:
+      deployment:
+        default: tenant
+tags:
+  - name: DSAR
+    description: Data Subject Access Request operations.
+paths:
+  /sar/profiles:
+    get:
+      tags:
+        - DSAR
+      operationId: listDsarProfiles
+      summary: List DSAR Profiles
+      description: Find DSAR profiles configured in the BigID environment.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Profiles retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DsarProfile'
+  /sar/attributes:
+    get:
+      tags:
+        - DSAR
+      operationId: listDsarAttributes
+      summary: List DSAR Attributes
+      description: Retrieve the identifier attributes available for a selected DSAR profile.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: profile_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Attributes retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+  /sar/reports:
+    post:
+      tags:
+        - DSAR
+      operationId: createDsarReport
+      summary: Create A DSAR Report
+      description: Submit a DSAR scan request using the BigID API.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DsarRequest'
+      responses:
+        '201':
+          description: DSAR request accepted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    type: string
+  /sar/reports/{requestId}/status:
+    get:
+      tags:
+        - DSAR
+      operationId: getDsarReportStatus
+      summary: Get DSAR Report Status
+      description: Check the status of a DSAR request to track progress.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Status retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /sar/reports/{requestId}/short-report:
+    get:
+      tags:
+        - DSAR
+      operationId: getDsarShortReport
+      summary: Get DSAR Short Report
+      description: Retrieve the DSAR short report in JSON or CSV.
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: requestId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum:
+              - json
+              - csv
+      responses:
+        '200':
+          description: Report retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+            text/csv:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    DsarProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    DsarRequest:
+      type: object
+      required:
+        - profileId
+        - userValues
+      properties:
+        profileId:
+          type: string
+        userValues:
+          type: array
+          items:
+            type: object
+            properties:
+              attributeName:
+                type: string
+              attributeValue:
+                type: string
+        skipAlertOnNoData:
+          type: boolean

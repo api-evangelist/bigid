@@ -1,0 +1,198 @@
+openapi: 3.0.3
+info:
+  title: BigID Data Sources API
+  description: >-
+    Programmatically manage data source connections in BigID. Discover available
+    connector templates, test connection settings, create new data sources,
+    and export existing data source configurations. Every action available in
+    the BigID UI for data source onboarding is also exposed via this API.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+  - url: https://{deployment}.bigid.com/api/v1
+    description: Customer-hosted BigID deployment.
+    variables:
+      deployment:
+        default: tenant
+tags:
+  - name: Data Sources
+    description: Manage data source connections.
+  - name: Connector Templates
+    description: Inspect available connector templates.
+paths:
+  /ds-connections:
+    get:
+      tags:
+        - Data Sources
+      operationId: listDataSources
+      summary: List Data Sources
+      description: Retrieve all configured data sources for the BigID deployment.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Data sources retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSourceList'
+  /ds_connections:
+    post:
+      tags:
+        - Data Sources
+      operationId: createDataSource
+      summary: Create A Data Source
+      description: Create a new data source connection in BigID.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataSource'
+      responses:
+        '201':
+          description: Data source created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+  /ds-connection-test:
+    post:
+      tags:
+        - Data Sources
+      operationId: testDataSourceConnection
+      summary: Test A Data Source Connection
+      description: >-
+        Validate connectivity to a data source using a candidate configuration
+        before persisting the connection. Returns the test result and any error
+        details.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataSource'
+      responses:
+        '200':
+          description: Connection test executed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+  /ds-connections/file-download/export:
+    get:
+      tags:
+        - Data Sources
+      operationId: exportDataSources
+      summary: Export Data Sources
+      description: Export the configured data sources for the deployment as a JSON file.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Data sources exported.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ds-templates:
+    get:
+      tags:
+        - Connector Templates
+      operationId: listConnectorTemplates
+      summary: List Connector Templates
+      description: List the connector templates available in this BigID deployment.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Templates retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+  /ds-templates/{type}:
+    get:
+      tags:
+        - Connector Templates
+      operationId: getConnectorTemplate
+      summary: Get A Connector Template
+      description: Retrieve a connector template for a specific data source type (e.g. rdb-mysql).
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The connector template type, e.g. rdb-mysql.
+      responses:
+        '200':
+          description: Template retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    DataSource:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for the data source.
+          example: my-mysql-database
+        type:
+          type: string
+          description: Connector template type (e.g. rdb-mysql, s3-v2, snowflake).
+        location:
+          type: string
+          description: Hostname or URI of the data source.
+        username:
+          type: string
+        password:
+          type: string
+        scope:
+          type: string
+          description: Optional scope restricting which schemas/tables/objects to scan.
+        enabled:
+          type: string
+          enum: ['yes', 'no']
+        scanner_group:
+          type: string
+          description: Scanner group that should perform scans for this source.
+    DataSourceList:
+      type: object
+      properties:
+        status:
+          type: string
+        statusCode:
+          type: integer
+        data:
+          type: object
+          properties:
+            ds_connections:
+              type: array
+              items:
+                $ref: '#/components/schemas/DataSource'

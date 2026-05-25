@@ -1,0 +1,185 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: BigID Data Sources — Connections
+  description: 'BigID Data Sources API — Connections. 4 operations to list, create, test, and export data source connections.
+    Self-contained Naftiko capability covering one BigID business surface.'
+  tags:
+    - BigID
+    - Data Sources
+    - Connectors
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      BIGID_BASE_URL: BIGID_BASE_URL
+      BIGID_SYSTEM_TOKEN: BIGID_SYSTEM_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: data-sources-connections
+      baseUri: '{{env.BIGID_BASE_URL}}'
+      description: BigID Data Sources business capability. Self-contained, no shared references.
+      resources:
+        - name: ds-connections
+          path: /api/v1/ds-connections
+          operations:
+            - name: listdatasources
+              method: GET
+              description: BigID List Data Sources
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: ds_connections
+          path: /api/v1/ds_connections
+          operations:
+            - name: createdatasource
+              method: POST
+              description: BigID Create A Data Source
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: ds-connection-test
+          path: /api/v1/ds-connection-test
+          operations:
+            - name: testdatasourceconnection
+              method: POST
+              description: BigID Test A Data Source Connection
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: ds-connections-export
+          path: /api/v1/ds-connections/file-download/export
+          operations:
+            - name: exportdatasources
+              method: GET
+              description: BigID Export Data Sources
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.BIGID_SYSTEM_TOKEN}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: data-sources-connections-rest
+      port: 8080
+      description: REST adapter for BigID Data Sources.
+      resources:
+        - path: /v1/ds-connections
+          name: ds-connections
+          description: REST surface for ds-connections.
+          operations:
+            - method: GET
+              name: listdatasources
+              description: BigID List Data Sources
+              call: data-sources-connections.listdatasources
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/ds_connections
+          name: ds_connections
+          description: REST surface for ds_connections.
+          operations:
+            - method: POST
+              name: createdatasource
+              description: BigID Create A Data Source
+              call: data-sources-connections.createdatasource
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/ds-connection-test
+          name: ds-connection-test
+          description: REST surface for ds-connection-test.
+          operations:
+            - method: POST
+              name: testdatasourceconnection
+              description: BigID Test A Data Source Connection
+              call: data-sources-connections.testdatasourceconnection
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/ds-connections/file-download/export
+          name: ds-connections-export
+          description: REST surface for ds-connections-export.
+          operations:
+            - method: GET
+              name: exportdatasources
+              description: BigID Export Data Sources
+              call: data-sources-connections.exportdatasources
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: data-sources-connections-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for BigID Data Sources.
+      tools:
+        - name: bigid-list-data-sources
+          description: BigID List Data Sources
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: data-sources-connections.listdatasources
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-create-data-source
+          description: BigID Create A Data Source
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: data-sources-connections.createdatasource
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-test-data-source-connection
+          description: BigID Test A Data Source Connection
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: data-sources-connections.testdatasourceconnection
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: bigid-export-data-sources
+          description: BigID Export Data Sources
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: data-sources-connections.exportdatasources
+          outputParameters:
+            - type: object
+              mapping: $.

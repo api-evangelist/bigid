@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "bigid": "https://developer.bigid.com/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "DataSource": {
+      "@id": "bigid:DataSource",
+      "@context": {
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "type": { "@id": "bigid:DataSource/type", "@type": "xsd:string" },
+        "location": { "@id": "bigid:DataSource/location", "@type": "xsd:string" },
+        "scope": { "@id": "bigid:DataSource/scope", "@type": "xsd:string" },
+        "enabled": { "@id": "bigid:DataSource/enabled", "@type": "xsd:string" },
+        "scanner_group": { "@id": "bigid:DataSource/scannerGroup", "@type": "xsd:string" }
+      }
+    },
+
+    "ScanProfile": {
+      "@id": "bigid:ScanProfile",
+      "@context": {
+        "id": { "@id": "schema:identifier", "@type": "xsd:string" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "dataSourceList": { "@id": "bigid:ScanProfile/dataSourceList", "@container": "@list" },
+        "scanTemplateId": { "@id": "bigid:ScanProfile/scanTemplateId", "@type": "xsd:string" },
+        "active": { "@id": "bigid:ScanProfile/active", "@type": "xsd:boolean" }
+      }
+    },
+
+    "CatalogObject": {
+      "@id": "bigid:CatalogObject",
+      "@context": {
+        "objectName": { "@id": "schema:name", "@type": "xsd:string" },
+        "objectId": { "@id": "schema:identifier", "@type": "xsd:string" },
+        "type": { "@id": "bigid:CatalogObject/type", "@type": "xsd:string" },
+        "source": { "@id": "bigid:CatalogObject/source", "@type": "xsd:string" },
+        "fullObjectName": { "@id": "bigid:CatalogObject/fullObjectName", "@type": "xsd:string" },
+        "attribute": { "@id": "bigid:CatalogObject/attribute", "@container": "@list" },
+        "has_duplicates": { "@id": "bigid:CatalogObject/hasDuplicates", "@type": "xsd:boolean" },
+        "duplicate_id": { "@id": "bigid:CatalogObject/duplicateId", "@type": "xsd:string" },
+        "update_date": { "@id": "dcterms:modified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Cluster": {
+      "@id": "bigid:Cluster",
+      "@context": {
+        "clusterId": { "@id": "schema:identifier", "@type": "xsd:string" },
+        "clusterName": { "@id": "schema:name", "@type": "xsd:string" },
+        "type": { "@id": "bigid:Cluster/type", "@type": "xsd:string" },
+        "size": { "@id": "bigid:Cluster/size", "@type": "xsd:integer" },
+        "members": { "@id": "bigid:Cluster/members", "@container": "@list" }
+      }
+    },
+
+    "Case": {
+      "@id": "bigid:Case",
+      "@context": {
+        "caseId": { "@id": "schema:identifier", "@type": "xsd:string" },
+        "caseStatus": { "@id": "bigid:Case/status", "@type": "xsd:string" },
+        "severityLevel": { "@id": "bigid:Case/severity", "@type": "xsd:string" },
+        "policyName": { "@id": "bigid:Case/policy", "@type": "xsd:string" },
+        "dataSourceName": { "@id": "bigid:Case/dataSource", "@type": "xsd:string" },
+        "auditReason": { "@id": "bigid:Case/auditReason", "@type": "xsd:string" }
+      }
+    },
+
+    "DsarRequest": {
+      "@id": "bigid:DsarRequest",
+      "@context": {
+        "profileId": { "@id": "bigid:DsarRequest/profileId", "@type": "xsd:string" },
+        "userValues": { "@id": "bigid:DsarRequest/userValues", "@container": "@list" },
+        "skipAlertOnNoData": { "@id": "bigid:DsarRequest/skipAlertOnNoData", "@type": "xsd:boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+specification: API Commons Vocabulary
+specificationVersion: '0.1'
+provider: BigID
+providerId: bigid
+created: '2026-05-25'
+modified: '2026-05-25'
+description: >-
+  Controlled vocabulary for BigID's data discovery, privacy, and security platform.
+  Maps the platform's operational dimensions (data source, scanner, classifier),
+  capability dimensions (DSPM, DLP, AI security, privacy automation), and policy
+  dimensions used across the REST API and product surface.
+tags:
+  - BigID
+  - Data Discovery
+  - DSPM
+  - DLP
+  - Privacy
+  - AI Security
+terms:
+  - id: data-source
+    label: Data Source
+    description: A connected system (database, file share, cloud bucket, SaaS, model store) that BigID can scan.
+    aliases: [ds, ds-connection]
+  - id: scanner
+    label: Scanner
+    description: A BigID worker that connects to a data source and performs discovery and classification.
+  - id: connector
+    label: Connector
+    description: An integration that allows BigID to talk to a new data source type. Java-based (internal) or REST-based (external).
+  - id: scan-profile
+    label: Scan Profile
+    description: A reusable configuration that defines which data sources are scanned, using which classifier template, and on what schedule.
+  - id: scan
+    label: Scan
+    description: A single execution of a scan profile against one or more data sources.
+  - id: parent-scan
+    label: Parent Scan
+    description: A rollup over multiple child scans triggered by the same profile.
+  - id: classifier
+    label: Classifier
+    description: A regex, NLP, or ML model that detects a category of sensitive data (PII, PHI, PCI, credentials, etc.).
+  - id: attribute
+    label: Attribute
+    description: A category that a classifier assigns to an object or column (e.g. SSN, email, credit-card).
+  - id: catalog
+    label: Data Catalog
+    description: BigID's inventory of every object, column, and attribute discovered across connected data sources.
+  - id: cluster
+    label: Cluster
+    description: A group of similar objects or columns identified by BigID's cluster-analysis engine.
+  - id: duplicate
+    label: Duplicate
+    description: A file or row whose content matches another asset in the catalog. Used for minimization and retention.
+  - id: dsar
+    label: DSAR
+    description: Data Subject Access Request. A privacy workflow that locates and packages every record about a data subject.
+  - id: dspm
+    label: DSPM
+    description: Data Security Posture Management. Identifies risk on data assets and orchestrates remediation.
+  - id: dlp
+    label: DLP
+    description: Data Loss Prevention. Prevents sensitive data from leaving controlled environments.
+  - id: posture-case
+    label: Posture Case
+    description: A discrete DSPM finding (an "actionable insight") attached to one or more assets.
+  - id: ai-security
+    label: AI Security
+    description: BigID's AI Security & Governance pillar covering shadow AI detection, model inventory, prompt/response governance, and TRiSM.
+  - id: shadow-ai
+    label: Shadow AI
+    description: Use of AI tools by employees that is not sanctioned or governed by IT/security.
+  - id: model-inventory
+    label: Model Inventory
+    description: A catalog of every AI model in use across the organization, with associated risks and access.
+  - id: privacy-automation
+    label: Privacy Automation
+    description: BigID's pillar covering DSAR, retention, deletion, and consent workflows.
+  - id: retention-policy
+    label: Retention Policy
+    description: A policy describing how long an asset class should be retained.
+  - id: minimization
+    label: Data Minimization
+    description: Reducing copies and duplicates of sensitive data to lower exposure.
+  - id: app-framework
+    label: App Framework
+    description: BigID's framework for building custom applications that integrate with BigID via /manifest, /execute, and /ui HTTP endpoints.
+  - id: marketplace
+    label: BigExchange Marketplace
+    description: BigID's app marketplace and developer GitHub organization hosting integrations, SDKs, and quickstarts.
+  - id: scanner-group
+    label: Scanner Group
+    description: A logical grouping of scanners that can be assigned to a data source for network or load-isolation reasons.
+  - id: system-token
+    label: System Token
+    description: A short-lived JWT exchanged from a user token via /api/v1/refresh-access-token. Used to authorize API calls.
+  - id: user-token
+    label: User Token
+    description: A long-lived (up to 999 days) token generated in the BigID UI under Administration → Access Management.

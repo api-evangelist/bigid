@@ -1,0 +1,34 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://tenant.bigid.com/api/v1/actionable-insights/all-cases?filter=caseStatus%3D%22open%22&limit=25",
+    "headers": {
+      "Authorization": "<systemToken>"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "cases": [
+          {
+            "caseId": "case-9f8e7d6c",
+            "caseStatus": "open",
+            "severityLevel": "high",
+            "policyName": "Exposed PII in public bucket",
+            "dataSourceName": "s3-customer-files",
+            "created_at": "2026-05-22T14:11:00Z"
+          },
+          {
+            "caseId": "case-1a2b3c4d",
+            "caseStatus": "open",
+            "severityLevel": "critical",
+            "policyName": "Over-privileged role with access to PHI",
+            "dataSourceName": "snowflake-prod",
+            "created_at": "2026-05-24T08:02:13Z"
+          }
+        ]
+      }
+    }
+  }
+}

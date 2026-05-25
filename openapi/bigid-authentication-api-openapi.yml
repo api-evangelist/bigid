@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: BigID Authentication API
+  description: >-
+    Authenticate against a BigID deployment using either user credentials
+    (username/password) or a long-lived user token. Exchange a user token for a
+    short-lived system token (session token) used to authorize subsequent calls
+    against the BigID REST API.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+  - url: https://sandbox.bigid.tools/api/v1
+    description: BigID developer sandbox.
+  - url: https://{deployment}.bigid.com/api/v1
+    description: Customer-hosted BigID deployment.
+    variables:
+      deployment:
+        default: tenant
+        description: Tenant subdomain assigned by BigID.
+tags:
+  - name: Authentication
+    description: User and token authentication operations.
+paths:
+  /sessions:
+    post:
+      tags:
+        - Authentication
+      operationId: createSession
+      summary: Create A User Session
+      description: >-
+        Authenticate a user with username and password. Returns an auth_token
+        that is used as a Bearer credential in subsequent requests.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionRequest'
+      responses:
+        '200':
+          description: Session created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionResponse'
+        '401':
+          description: Invalid credentials.
+  /refresh-access-token:
+    post:
+      tags:
+        - Authentication
+      operationId: refreshAccessToken
+      summary: Refresh Access Token
+      description: >-
+        Exchange a long-lived user token for a short-lived system token used to
+        authorize calls against the BigID REST API. Pass the user token in the
+        Authorization header.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: System token issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '401':
+          description: Invalid user token.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    SessionRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: The BigID username.
+        password:
+          type: string
+          description: The user's password.
+    SessionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        auth_token:
+          type: string
+          description: JWT used to authorize subsequent API calls.
+        username:
+          type: string
+        firstName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    TokenResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        systemToken:
+          type: string
+          description: Short-lived system token (JWT).

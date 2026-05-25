@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/bigid/bigid-case-schema.json",
+  "title": "BigID Actionable Insights Case",
+  "description": "Schema describing a single DSPM/posture case returned by GET /api/v1/actionable-insights/all-cases.",
+  "type": "object",
+  "properties": {
+    "caseId": {
+      "type": "string",
+      "description": "BigID case identifier."
+    },
+    "caseStatus": {
+      "type": "string",
+      "enum": ["open", "resolved", "silenced", "acknowledged"],
+      "description": "Lifecycle state of the case."
+    },
+    "severityLevel": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"],
+      "description": "Severity scoring for the underlying risk."
+    },
+    "policyName": {
+      "type": "string",
+      "description": "Name of the BigID policy that flagged the issue."
+    },
+    "dataSourceName": {
+      "type": "string",
+      "description": "Data source the affected asset lives in."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "auditReason": {
+      "type": "string",
+      "description": "Audit reason recorded when changing the case status."
+    }
+  }
+}
