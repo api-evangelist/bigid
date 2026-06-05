@@ -2,15 +2,12 @@ aid: bigid
 url: https://raw.githubusercontent.com/api-evangelist/bigid/refs/heads/main/apis.yml
 name: BigID
 description: >-
-  BigID is a New York City-headquartered data security platform that combines
-  Data Security Posture Management (DSPM), Data Loss Prevention (DLP), access
-  governance, AI security & governance (AISPM), privacy automation, and a
-  unified Data & AI Catalog. Founded in 2016 by Dimitri Sirota and Nimrod Vax,
-  BigID exposes every action available in its UI through a REST API rooted at
-  /api/v1 — covering data sources, scans, catalog, cluster analysis, DSPM
-  cases, and DSARs — plus an App Framework for building custom apps, a
-  connector framework (Java and REST) for new data sources, and an MCP
-  surface for AI agents.
+  BigID is a New York City-headquartered data security platform that combines Data Security Posture Management (DSPM),
+  Data Loss Prevention (DLP), access governance, AI security & governance (AISPM), privacy automation, and a unified
+  Data & AI Catalog. Founded in 2016 by Dimitri Sirota and Nimrod Vax, BigID exposes every action available in its UI
+  through a REST API rooted at /api/v1 — covering data sources, scans, catalog, cluster analysis, DSPM cases, and DSARs
+  — plus an App Framework for building custom apps, a connector framework (Java and REST) for new data sources, and an
+  MCP surface for AI agents.
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 created: '2026-05-25'
 modified: '2026-05-25'
@@ -31,9 +28,8 @@ apis:
   - aid: bigid:bigid-authentication-api
     name: BigID Authentication API
     description: >-
-      Authenticate against a BigID deployment using either username/password or
-      a long-lived user token. Exchange a user token for a short-lived system
-      token (JWT) used to authorize subsequent REST API calls.
+      Authenticate against a BigID deployment using either username/password or a long-lived user token. Exchange a user
+      token for a short-lived system token (JWT) used to authorize subsequent REST API calls.
     humanURL: https://developer.bigid.com/api/bigid-api-token-authentication/
     tags:
       - Authentication
@@ -48,14 +44,11 @@ apis:
         type: OpenAPI
       - url: examples/bigid-create-session-example.json
         type: Example
-      - type: NaftikoCapability
-        url: capabilities/authentication-sessions.yaml
   - aid: bigid:bigid-data-sources-api
     name: BigID Data Sources API
     description: >-
-      Programmatically manage data source connections in BigID. List, create,
-      test, and export data sources, and inspect the catalog of available
-      connector templates (e.g. rdb-mysql, s3-v2, snowflake, sharepoint-online).
+      Programmatically manage data source connections in BigID. List, create, test, and export data sources, and inspect
+      the catalog of available connector templates (e.g. rdb-mysql, s3-v2, snowflake, sharepoint-online).
     humanURL: https://developer.bigid.com/api/data-source-connections-api-tutorial/
     tags:
       - Data Sources
@@ -71,16 +64,11 @@ apis:
         type: JSONSchema
       - url: examples/bigid-list-data-sources-example.json
         type: Example
-      - type: NaftikoCapability
-        url: capabilities/data-sources-connections.yaml
-      - type: NaftikoCapability
-        url: capabilities/data-sources-templates.yaml
   - aid: bigid:bigid-scans-api
     name: BigID Scans API
     description: >-
-      Configure and execute BigID scans. Create scan profiles to control which
-      data sources are scanned and using which classifier template, then start
-      and monitor scan executions and parent-scan rollups.
+      Configure and execute BigID scans. Create scan profiles to control which data sources are scanned and using which
+      classifier template, then start and monitor scan executions and parent-scan rollups.
     humanURL: https://developer.bigid.com/api/scan-profiles-api-tutorial/
     tags:
       - Scans
@@ -92,16 +80,11 @@ apis:
         type: Documentation
       - url: openapi/bigid-scans-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/scans-profiles.yaml
-      - type: NaftikoCapability
-        url: capabilities/scans-executions.yaml
   - aid: bigid:bigid-data-catalog-api
     name: BigID Data Catalog API
     description: >-
-      Query and export BigID's data catalog — the central inventory of objects,
-      columns, and attributes discovered by BigID scans. Includes metadata
-      export, duplicate-detection, and cluster-similar-column lookups.
+      Query and export BigID's data catalog — the central inventory of objects, columns, and attributes discovered by
+      BigID scans. Includes metadata export, duplicate-detection, and cluster-similar-column lookups.
     humanURL: https://developer.bigid.com/api/bigid-api-metadata-export-tutorial/
     tags:
       - Catalog
@@ -116,15 +99,12 @@ apis:
         type: OpenAPI
       - url: json-schema/bigid-catalog-object-schema.json
         type: JSONSchema
-      - type: NaftikoCapability
-        url: capabilities/data-catalog-objects.yaml
   - aid: bigid:bigid-cluster-analysis-api
     name: BigID Cluster Analysis API
     description: >-
-      Retrieve clusters of similar data identified by BigID's cluster-analysis
-      engine. Clusters group structurally or semantically similar columns and
-      objects across data sources to support deduplication, retention, and
-      minimization workflows.
+      Retrieve clusters of similar data identified by BigID's cluster-analysis engine. Clusters group structurally or
+      semantically similar columns and objects across data sources to support deduplication, retention, and minimization
+      workflows.
     humanURL: https://developer.bigid.com/api/cluster-analysis-api-tutorial/
     tags:
       - Clusters
@@ -134,14 +114,11 @@ apis:
         type: Documentation
       - url: openapi/bigid-cluster-analysis-api-openapi.yml
         type: OpenAPI
-      - type: NaftikoCapability
-        url: capabilities/cluster-analysis-clusters.yaml
   - aid: bigid:bigid-data-posture-api
     name: BigID Data Posture API
     description: >-
-      Fetch and remediate Data Security Posture Management (DSPM) findings via
-      BigID's actionable insights API. List open cases, bulk-update them, and
-      resolve individual cases with audit reasons.
+      Fetch and remediate Data Security Posture Management (DSPM) findings via BigID's actionable insights API. List
+      open cases, bulk-update them, and resolve individual cases with audit reasons.
     humanURL: https://developer.bigid.com/api/data-posture-api-tutorial/
     tags:
       - DSPM
@@ -156,15 +133,11 @@ apis:
         type: JSONSchema
       - url: examples/bigid-list-posture-cases-example.json
         type: Example
-      - type: NaftikoCapability
-        url: capabilities/data-posture-cases.yaml
   - aid: bigid:bigid-dsar-api
     name: BigID DSAR API
     description: >-
-      Run Data Subject Access Requests (DSARs) and retrieve the resulting
-      reports. Inspect available DSAR profiles and identifier attributes,
-      submit new DSAR scans, poll status, and download short or full reports in
-      JSON or CSV.
+      Run Data Subject Access Requests (DSARs) and retrieve the resulting reports. Inspect available DSAR profiles and
+      identifier attributes, submit new DSAR scans, poll status, and download short or full reports in JSON or CSV.
     humanURL: https://developer.bigid.com/api/bigid-api-dsar-tutorial/
     tags:
       - DSAR
@@ -176,8 +149,6 @@ apis:
         type: OpenAPI
       - url: examples/bigid-create-dsar-report-example.json
         type: Example
-      - type: NaftikoCapability
-        url: capabilities/dsar-reports.yaml
 common:
   - url: https://developer.bigid.com/
     name: BigID Developer Portal
@@ -287,34 +258,50 @@ common:
       - name: Data Security Posture Management (DSPM)
         description: Continuous risk detection across cloud, on-prem, and SaaS data with severity-based remediation workflows.
       - name: Data Loss Prevention (DLP)
-        description: ML-enhanced DLP with custom labeling by sensitivity, residency, and risk; integrates with MIP and Google labels.
+        description: >-
+          ML-enhanced DLP with custom labeling by sensitivity, residency, and risk; integrates with MIP and Google
+          labels.
       - name: Access Governance
         description: Identify over-privileged access, enable zero-trust controls, and mitigate insider risk.
       - name: AI Security & Governance (AISPM)
-        description: Shadow AI detection, AI model inventory, prompt and response governance, TRiSM (Trust, Risk & Security Management for AI).
+        description: >-
+          Shadow AI detection, AI model inventory, prompt and response governance, TRiSM (Trust, Risk & Security
+          Management for AI).
       - name: Privacy Automation
         description: DSAR fulfillment, retention, deletion, consent, and 190,000+ out-of-the-box retention policies.
       - name: Data & AI Catalog
-        description: Unified catalog of structured and unstructured data, AI models, prompts, and agents; federates with third-party catalogs.
+        description: >-
+          Unified catalog of structured and unstructured data, AI models, prompts, and agents; federates with
+          third-party catalogs.
       - name: 100+ Data Source Connectors
-        description: Cloud, SaaS, on-prem, and developer-environment connectors. Java-based or REST-based connector framework for custom sources.
+        description: >-
+          Cloud, SaaS, on-prem, and developer-environment connectors. Java-based or REST-based connector framework for
+          custom sources.
       - name: 1000+ Pre-Trained Classifiers
         description: Patented AI classification across 100+ languages, plus regex, NLP, and customer-built classifiers.
       - name: App Framework
-        description: Build custom apps that integrate with BigID via /manifest, /execute, and /ui HTTP endpoints; deploy alongside BigID on Kubernetes.
+        description: >-
+          Build custom apps that integrate with BigID via /manifest, /execute, and /ui HTTP endpoints; deploy alongside
+          BigID on Kubernetes.
       - name: MCP for Agents
-        description: BigID exposes its data governance and connector surface through the Model Context Protocol so AI agents can drive it.
+        description: >-
+          BigID exposes its data governance and connector surface through the Model Context Protocol so AI agents can
+          drive it.
   - type: UseCases
     name: UseCases
     data:
       - name: AI Risk Management and TRiSM
         description: Discover, govern, and secure AI models, training data, prompts, and agent surfaces across the enterprise.
       - name: Cloud Data Security
-        description: Find and remediate exposed PII, PHI, PCI, and other sensitive data in S3, GCS, Azure Storage, Snowflake, and Databricks.
+        description: >-
+          Find and remediate exposed PII, PHI, PCI, and other sensitive data in S3, GCS, Azure Storage, Snowflake, and
+          Databricks.
       - name: Data Minimization
         description: Surface duplicate and stale data to shrink the sensitive-data footprint.
       - name: Privacy Compliance
-        description: Operationalize HIPAA, GDPR, CCPA, LGPD, and other privacy regimes with DSAR, retention, and consent automation.
+        description: >-
+          Operationalize HIPAA, GDPR, CCPA, LGPD, and other privacy regimes with DSAR, retention, and consent
+          automation.
       - name: Insider Risk Detection
         description: Spot suspicious access to sensitive data based on behavior, role, and policy.
       - name: Breach Investigation
