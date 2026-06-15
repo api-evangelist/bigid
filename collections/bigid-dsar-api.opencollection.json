@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BigID DSAR API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DSAR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List DSAR Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/sar/profiles",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Find DSAR profiles configured in the BigID environment."
+        },
+        {
+          "info": {
+            "name": "List DSAR Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/sar/attributes",
+            "params": [
+              {
+                "name": "profile_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the identifier attributes available for a selected DSAR profile."
+        },
+        {
+          "info": {
+            "name": "Create A DSAR Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{deployment}.bigid.com/api/v1/sar/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submit a DSAR scan request using the BigID API."
+        },
+        {
+          "info": {
+            "name": "Get DSAR Report Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/sar/reports/:requestId/status",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Check the status of a DSAR request to track progress."
+        },
+        {
+          "info": {
+            "name": "Get DSAR Short Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/sar/reports/:requestId/short-report",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the DSAR short report in JSON or CSV."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

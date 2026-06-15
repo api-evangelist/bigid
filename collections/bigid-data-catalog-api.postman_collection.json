@@ -1,0 +1,541 @@
+{
+  "item": [
+    {
+      "id": "56addb35-5480-4ce5-8598-2b6994b8c3fd",
+      "name": "Catalog",
+      "description": {
+        "content": "Browse catalog objects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c51b8243-c120-4d9c-a8e0-ae2a25586b87",
+          "name": "Query The Data Catalog",
+          "request": {
+            "name": "Query The Data Catalog",
+            "description": {
+              "content": "Retrieve catalog entries. Filter results with BigID's filter query syntax (e.g. `has_duplicates=\"true\"` or `duplicate_id=\"{duplicateId}\"`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "BigID filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0711676a-bb42-4c90-8dca-90b254855c4a",
+              "name": "Catalog entries retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalRowsCounter\": 6255,\n  \"results\": [\n    {\n      \"objectName\": \"string\",\n      \"objectId\": \"string\",\n      \"type\": \"string\",\n      \"source\": \"string\",\n      \"fullObjectName\": \"string\",\n      \"attribute\": [\n        \"string\",\n        \"string\"\n      ],\n      \"has_duplicates\": false,\n      \"duplicate_id\": \"string\",\n      \"scanner_type_group\": \"string\",\n      \"update_date\": \"1948-03-12T09:19:08.742Z\"\n    },\n    {\n      \"objectName\": \"string\",\n      \"objectId\": \"string\",\n      \"type\": \"string\",\n      \"source\": \"string\",\n      \"fullObjectName\": \"string\",\n      \"attribute\": [\n        \"string\",\n        \"string\"\n      ],\n      \"has_duplicates\": false,\n      \"duplicate_id\": \"string\",\n      \"scanner_type_group\": \"string\",\n      \"update_date\": \"1969-05-03T07:49:22.484Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1f29472-b6e8-41c4-88a8-701b96c0d20e",
+          "name": "List Similar Cluster Columns",
+          "request": {
+            "name": "List Similar Cluster Columns",
+            "description": {
+              "content": "Get all columns for the provided cluster identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog",
+                "column",
+                "cluster",
+                "similar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cluster_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a2f50b9b-9b32-4061-b6b7-5e90390ec1ae",
+              "name": "Columns retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog",
+                    "column",
+                    "cluster",
+                    "similar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cluster_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "42524548-977d-4edf-8a20-97bba2c49900",
+      "name": "Metadata Export",
+      "description": {
+        "content": "Export catalog metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ffea7bd7-0e48-4e89-b841-60707ff7f492",
+          "name": "Get Catalog Object Columns",
+          "request": {
+            "name": "Get Catalog Object Columns",
+            "description": {
+              "content": "Retrieve column-level metadata for catalog objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog",
+                "object-details",
+                "columns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c9453abd-ca1d-4d2b-8bc4-f48c7fdece6b",
+              "name": "Column metadata retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog",
+                    "object-details",
+                    "columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "462154c4-a823-4ed5-9d8b-80975cf034ca",
+          "name": "Get Catalog Object Attributes",
+          "request": {
+            "name": "Get Catalog Object Attributes",
+            "description": {
+              "content": "Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog",
+                "object-details",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91c8f914-6dfd-4676-881d-f95e712f2070",
+              "name": "Attributes retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog",
+                    "object-details",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6c1ff21c-538e-4ca2-bfdf-5b4cd7599688",
+      "name": "Duplicates",
+      "description": {
+        "content": "Discover duplicate data.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "tenant",
+      "key": "deployment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{deployment}}.bigid.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "14c19982-eeb2-4c1a-b2f5-cfe804419ece",
+    "name": "BigID Data Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Query and export BigID's data catalog — the central inventory of objects, columns, and attributes discovered by BigID scans. Includes endpoints for metadata export, duplicate-data analysis, and column-level cluster similarity lookups.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+      "type": "text/plain"
+    }
+  }
+}

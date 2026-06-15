@@ -1,0 +1,167 @@
+{
+  "item": [
+    {
+      "id": "b1821f38-5481-44f2-9b66-d1c2cd46f8e8",
+      "name": "Clusters",
+      "description": {
+        "content": "Cluster analysis operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a850bf1-bed7-4b86-927a-6c38c17da4da",
+          "name": "List Clusters",
+          "request": {
+            "name": "List Clusters",
+            "description": {
+              "content": "Retrieve a list of clusters with optional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "07dc2882-acda-40d4-946b-625774b4b795",
+              "name": "Clusters retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"clusters\": [\n      {\n        \"clusterId\": \"string\",\n        \"clusterName\": \"string\",\n        \"type\": \"string\",\n        \"size\": 974,\n        \"members\": [\n          \"string\",\n          \"string\"\n        ],\n        \"attribute\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"clusterId\": \"string\",\n        \"clusterName\": \"string\",\n        \"type\": \"string\",\n        \"size\": 5153,\n        \"members\": [\n          \"string\",\n          \"string\"\n        ],\n        \"attribute\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "tenant",
+      "key": "deployment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{deployment}}.bigid.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d51dcf94-1281-46e2-8cc6-036b494e3065",
+    "name": "BigID Cluster Analysis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Retrieve clusters of similar data identified by BigID's cluster-analysis engine. Clusters group structurally or semantically similar columns and objects across data sources to support deduplication, retention, and minimization workflows.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+      "type": "text/plain"
+    }
+  }
+}

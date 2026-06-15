@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BigID Data Catalog API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query The Data Catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/data-catalog",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "BigID filter expression."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve catalog entries. Filter results with BigID's filter query syntax (e.g. `has_duplicates=\"true\"` or `duplicate_id=\"{duplicateId}\"`)."
+        },
+        {
+          "info": {
+            "name": "List Similar Cluster Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/data-catalog/column/cluster/similar",
+            "params": [
+              {
+                "name": "cluster_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all columns for the provided cluster identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metadata Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Catalog Object Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/data-catalog/object-details/columns",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve column-level metadata for catalog objects."
+        },
+        {
+          "info": {
+            "name": "Get Catalog Object Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/data-catalog/object-details/attributes",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

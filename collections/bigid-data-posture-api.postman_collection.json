@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "cf2533b0-fdb3-4aff-a241-15c1388d21dc",
+      "name": "Actionable Insights",
+      "description": {
+        "content": "DSPM cases and remediation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c74b2a1e-9a71-4ba9-a281-df457b9d031f",
+          "name": "List Actionable Insights Cases",
+          "request": {
+            "name": "List Actionable Insights Cases",
+            "description": {
+              "content": "Fetch all existing security issues. Limit the selection with query parameters that filter by severity, status, asset type, or policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actionable-insights",
+                "all-cases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "56c3272b-59e5-4d68-b9f7-6db0447e11e3",
+              "name": "Cases retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actionable-insights",
+                    "all-cases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"cases\": [\n      {\n        \"caseId\": \"string\",\n        \"caseStatus\": \"silenced\",\n        \"severityLevel\": \"low\",\n        \"policyName\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"created_at\": \"1969-09-24T09:40:05.563Z\",\n        \"updated_at\": \"1960-12-15T05:33:46.118Z\",\n        \"auditReason\": \"string\"\n      },\n      {\n        \"caseId\": \"string\",\n        \"caseStatus\": \"silenced\",\n        \"severityLevel\": \"critical\",\n        \"policyName\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"created_at\": \"2010-02-26T00:56:13.575Z\",\n        \"updated_at\": \"2020-03-29T07:01:58.976Z\",\n        \"auditReason\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c61dd64c-5721-4593-8a9d-d3d6a3481a62",
+          "name": "Bulk Update Actionable Insights Cases",
+          "request": {
+            "name": "Bulk Update Actionable Insights Cases",
+            "description": {
+              "content": "Mark issues as resolved or update field values in bulk based on a filter expression.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actionable-insights",
+                "cases:{{actionType}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6cc299d-09f9-4253-96df-897c6eedcd39",
+              "name": "Update accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actionable-insights",
+                    "cases:{{actionType}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4f6d91f-44ee-456c-9ece-ce271ac7d8e7",
+          "name": "Update Actionable Insights Case Status",
+          "request": {
+            "name": "Update Actionable Insights Case Status",
+            "description": {
+              "content": "Update the status of a specific case (e.g. resolved) with an audit reason.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actionable-insights",
+                "case-status",
+                ":caseId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "caseId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{deployment}}",
+                  "key": "deployment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"auditReason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "836d9a48-6ae9-404f-95a6-810630ca5ad0",
+              "name": "Case status updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actionable-insights",
+                    "case-status",
+                    ":caseId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "caseId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{deployment}}",
+                      "key": "deployment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"auditReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "tenant",
+      "key": "deployment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{deployment}}.bigid.com/api/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "actionType"
+    }
+  ],
+  "info": {
+    "_postman_id": "4e0d50f5-463d-4d7b-a81d-558e6ae50bbb",
+    "name": "BigID Data Posture API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Fetch and remediate Data Security Posture Management (DSPM) findings via BigID's actionable insights API. List open security cases, update status in bulk, and resolve individual cases with audit reasons.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+      "type": "text/plain"
+    }
+  }
+}

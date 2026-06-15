@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BigID Scans API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scan Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A Scan Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{deployment}.bigid.com/api/v1/scanProfiles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new scan profile that controls which data sources are scanned and using which template."
+        },
+        {
+          "info": {
+            "name": "Get A Scan Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/scanProfiles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve the details of a scan profile by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Scans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/scans",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a list of scan executions."
+        },
+        {
+          "info": {
+            "name": "Start A Scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{deployment}.bigid.com/api/v1/scans",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Trigger a scan based on a scan profile."
+        },
+        {
+          "info": {
+            "name": "List Parent Scans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/scans/parent-scans",
+            "params": [
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve parent scans with customizable query parameters."
+        },
+        {
+          "info": {
+            "name": "Get Scan Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/scans/:scan_id/status",
+            "params": [
+              {
+                "name": "scan_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Check the current status of a specific scan to determine whether it is running or completed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

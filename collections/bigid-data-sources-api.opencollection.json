@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BigID Data Sources API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Data Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/ds-connections",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve all configured data sources for the BigID deployment."
+        },
+        {
+          "info": {
+            "name": "Create A Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{deployment}.bigid.com/api/v1/ds_connections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new data source connection in BigID."
+        },
+        {
+          "info": {
+            "name": "Test A Data Source Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{deployment}.bigid.com/api/v1/ds-connection-test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Validate connectivity to a data source using a candidate configuration before persisting the connection. Returns the test result and any error details."
+        },
+        {
+          "info": {
+            "name": "Export Data Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/ds-connections/file-download/export",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Export the configured data sources for the deployment as a JSON file."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Connector Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Connector Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/ds-templates",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List the connector templates available in this BigID deployment."
+        },
+        {
+          "info": {
+            "name": "Get A Connector Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{deployment}.bigid.com/api/v1/ds-templates/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The connector template type, e.g. rdb-mysql."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a connector template for a specific data source type (e.g. rdb-mysql)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
