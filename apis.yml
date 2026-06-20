@@ -8,7 +8,7 @@ description: >-
   through a REST API rooted at /api/v1 — covering data sources, scans, catalog, cluster analysis, DSPM cases, and DSARs
   — plus an App Framework for building custom apps, a connector framework (Java and REST) for new data sources, and an
   MCP surface for AI agents.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.16'
