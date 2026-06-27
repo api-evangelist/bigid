@@ -5,7 +5,7 @@
       "source": "https://bigid.com/feed/",
       "feed_url": "https://bigid.com/feed/",
       "title": "",
-      "saved": 0,
+      "saved": 5,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 17,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 26,
+  "fetched": "2026-06-27T12:03:07Z"
 }

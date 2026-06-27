@@ -43,7 +43,7 @@ apis:
       - url: openapi/bigid-authentication-api-openapi.yml
         type: OpenAPI
       - url: examples/bigid-create-session-example.json
-        type: Example
+        type: Examples
   - aid: bigid:bigid-data-sources-api
     name: BigID Data Sources API
     description: >-
@@ -63,7 +63,7 @@ apis:
       - url: json-schema/bigid-data-source-schema.json
         type: JSONSchema
       - url: examples/bigid-list-data-sources-example.json
-        type: Example
+        type: Examples
   - aid: bigid:bigid-scans-api
     name: BigID Scans API
     description: >-
@@ -132,7 +132,7 @@ apis:
       - url: json-schema/bigid-case-schema.json
         type: JSONSchema
       - url: examples/bigid-list-posture-cases-example.json
-        type: Example
+        type: Examples
   - aid: bigid:bigid-dsar-api
     name: BigID DSAR API
     description: >-
@@ -148,7 +148,7 @@ apis:
       - url: openapi/bigid-dsar-api-openapi.yml
         type: OpenAPI
       - url: examples/bigid-create-dsar-report-example.json
-        type: Example
+        type: Examples
 common:
   - url: https://developer.bigid.com/
     name: BigID Developer Portal
@@ -173,16 +173,16 @@ common:
     type: GitHubOrganization
   - url: https://github.com/bigexchange/sdk-javascript
     name: BigID JavaScript SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/bigexchange/consent-sdk-ios
     name: BigID iOS Consent SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/bigexchange/quickstart-simple-ts
     name: BigID Simple App Quickstart (TypeScript)
-    type: Quickstart
+    type: GettingStarted
   - url: https://github.com/bigexchange/quickstart-utility-dspm-ts
     name: BigID DSPM Quickstart (TypeScript)
-    type: Quickstart
+    type: GettingStarted
   - url: https://github.com/bigexchange/app-framework-helloworld-app
     name: BigID App Framework Hello-World App (Java)
     type: CodeExamples
