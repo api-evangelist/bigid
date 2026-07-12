@@ -150,6 +150,14 @@ apis:
       - url: examples/bigid-create-dsar-report-example.json
         type: Examples
 common:
+  - type: TrustCenter
+    url: security/bigid-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/bigid-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bigid-domain-security.yml
+  - type: Authentication
+    url: authentication/bigid-authentication.yml
   - url: https://developer.bigid.com/
     name: BigID Developer Portal
     type: DeveloperPortal

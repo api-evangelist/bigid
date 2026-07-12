@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: bigid.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 30 15:26:18 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: developer.bigid.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  9 10:43:20 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: sandbox.bigid.tools
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Dec  8 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: bigid.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: bigid.tools
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false

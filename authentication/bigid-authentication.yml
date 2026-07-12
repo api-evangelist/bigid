@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bigid-authentication-api-openapi.yml, openapi/bigid-cluster-analysis-api-openapi.yml,
+  openapi/bigid-data-catalog-api-openapi.yml, openapi/bigid-data-posture-api-openapi.yml, openapi/bigid-data-sources-api-openapi.yml,
+  openapi/bigid-dsar-api-openapi.yml, openapi/bigid-scans-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/bigid-authentication-api-openapi.yml
+  - openapi/bigid-cluster-analysis-api-openapi.yml
+  - openapi/bigid-data-catalog-api-openapi.yml
+  - openapi/bigid-data-posture-api-openapi.yml
+  - openapi/bigid-data-sources-api-openapi.yml
+  - openapi/bigid-dsar-api-openapi.yml
+  - openapi/bigid-scans-api-openapi.yml

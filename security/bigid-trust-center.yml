@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://bigid.com/compliance/
+url: https://bigid.com/compliance/
+certifications:
+- PCI DSS
+- HIPAA
+- GDPR
+evidence:
+- source: https://bigid.com/compliance/
+  keywords:
+  - pci dss
+  - pci-dss
+  - hipaa
+  - trust center
+  - gdpr
