@@ -150,6 +150,8 @@ apis:
       - url: examples/bigid-create-dsar-report-example.json
         type: Examples
 common:
+  - type: AgenticAccess
+    url: agentic-access/bigid-agentic-access.yml
   - type: TrustCenter
     url: security/bigid-trust-center.yml
   - type: VulnerabilityDisclosure
