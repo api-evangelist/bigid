@@ -1,10 +1,7 @@
 openapi: 3.0.3
 info:
-  title: BigID Scans API
-  description: >-
-    Configure and execute BigID scans. Create scan profiles to control which
-    data sources are scanned and using which classifier templates, then start
-    and monitor scan executions and their parent-scan rollups.
+  title: BigID Authentication Actionable Insights Scans API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
   version: '1.0'
   contact:
     name: BigID Support
@@ -14,70 +11,27 @@ info:
     name: BigID Terms of Service
     url: https://bigid.com/terms/
 servers:
-  - url: https://{deployment}.bigid.com/api/v1
-    description: Customer-hosted BigID deployment.
-    variables:
-      deployment:
-        default: tenant
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
 tags:
-  - name: Scan Profiles
-    description: Configure recurring scan profiles.
-  - name: Scans
-    description: Execute and monitor scans.
+- name: Scans
+  description: Execute and monitor scans.
 paths:
-  /scanProfiles:
-    post:
-      tags:
-        - Scan Profiles
-      operationId: createScanProfile
-      summary: Create A Scan Profile
-      description: Create a new scan profile that controls which data sources are scanned and using which template.
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ScanProfile'
-      responses:
-        '201':
-          description: Scan profile created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ScanProfile'
-  /scanProfiles/{id}:
-    get:
-      tags:
-        - Scan Profiles
-      operationId: getScanProfile
-      summary: Get A Scan Profile
-      description: Retrieve the details of a scan profile by its identifier.
-      security:
-        - BearerAuth: []
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Scan profile retrieved.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ScanProfile'
   /scans:
     get:
       tags:
-        - Scans
+      - Scans
       operationId: listScans
       summary: List Scans
       description: Retrieve a list of scan executions.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       responses:
         '200':
           description: Scans retrieved.
@@ -87,12 +41,12 @@ paths:
                 type: object
     post:
       tags:
-        - Scans
+      - Scans
       operationId: startScan
       summary: Start A Scan
       description: Trigger a scan based on a scan profile.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -108,21 +62,21 @@ paths:
   /scans/parent-scans:
     get:
       tags:
-        - Scans
+      - Scans
       operationId: listParentScans
       summary: List Parent Scans
       description: Retrieve parent scans with customizable query parameters.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: sort
-          in: query
-          schema:
-            type: string
-        - name: limit
-          in: query
-          schema:
-            type: integer
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: Parent scans retrieved.
@@ -133,18 +87,18 @@ paths:
   /scans/{scan_id}/status:
     get:
       tags:
-        - Scans
+      - Scans
       operationId: getScanStatus
       summary: Get Scan Status
       description: Check the current status of a specific scan to determine whether it is running or completed.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: scan_id
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: scan_id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Scan status retrieved.
@@ -163,28 +117,3 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-  schemas:
-    ScanProfile:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        dataSourceList:
-          type: array
-          items:
-            type: string
-        scanTemplateId:
-          type: string
-        active:
-          type: boolean
-        isCustomScanProfile:
-          type: boolean
-        schedule:
-          type: object
-          properties:
-            cronExpression:
-              type: string
-            timeZone:
-              type: string

@@ -1,11 +1,7 @@
 openapi: 3.0.3
 info:
-  title: BigID Cluster Analysis API
-  description: >-
-    Retrieve clusters of similar data identified by BigID's cluster-analysis
-    engine. Clusters group structurally or semantically similar columns and
-    objects across data sources to support deduplication, retention, and
-    minimization workflows.
+  title: BigID Authentication Actionable Insights Clusters API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
   version: '1.0'
   contact:
     name: BigID Support
@@ -15,33 +11,36 @@ info:
     name: BigID Terms of Service
     url: https://bigid.com/terms/
 servers:
-  - url: https://{deployment}.bigid.com/api/v1
-    description: Customer-hosted BigID deployment.
-    variables:
-      deployment:
-        default: tenant
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
 tags:
-  - name: Clusters
-    description: Cluster analysis operations.
+- name: Clusters
+  description: Cluster analysis operations.
 paths:
   /clusters:
     get:
       tags:
-        - Clusters
+      - Clusters
       operationId: listClusters
       summary: List Clusters
       description: Retrieve a list of clusters with optional filtering.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: filter
-          in: query
-          schema:
-            type: string
-        - name: limit
-          in: query
-          schema:
-            type: integer
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
       responses:
         '200':
           description: Clusters retrieved.
@@ -58,11 +57,6 @@ paths:
                         items:
                           $ref: '#/components/schemas/Cluster'
 components:
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
     Cluster:
       type: object
@@ -83,3 +77,8 @@ components:
           type: array
           items:
             type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: BigID Authentication Actionable Insights Scan Profiles API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
+tags:
+- name: Scan Profiles
+  description: Configure recurring scan profiles.
+paths:
+  /scanProfiles:
+    post:
+      tags:
+      - Scan Profiles
+      operationId: createScanProfile
+      summary: Create A Scan Profile
+      description: Create a new scan profile that controls which data sources are scanned and using which template.
+      security:
+      - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanProfile'
+      responses:
+        '201':
+          description: Scan profile created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanProfile'
+  /scanProfiles/{id}:
+    get:
+      tags:
+      - Scan Profiles
+      operationId: getScanProfile
+      summary: Get A Scan Profile
+      description: Retrieve the details of a scan profile by its identifier.
+      security:
+      - BearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Scan profile retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanProfile'
+components:
+  schemas:
+    ScanProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        dataSourceList:
+          type: array
+          items:
+            type: string
+        scanTemplateId:
+          type: string
+        active:
+          type: boolean
+        isCustomScanProfile:
+          type: boolean
+        schedule:
+          type: object
+          properties:
+            cronExpression:
+              type: string
+            timeZone:
+              type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

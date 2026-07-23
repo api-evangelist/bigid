@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: BigID Authentication Actionable Insights Metadata Export API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
+tags:
+- name: Metadata Export
+  description: Export catalog metadata.
+paths:
+  /data-catalog/object-details/columns:
+    get:
+      tags:
+      - Metadata Export
+      operationId: getCatalogObjectColumns
+      summary: Get Catalog Object Columns
+      description: Retrieve column-level metadata for catalog objects.
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Column metadata retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+  /data-catalog/object-details/attributes:
+    get:
+      tags:
+      - Metadata Export
+      operationId: getCatalogObjectAttributes
+      summary: Get Catalog Object Attributes
+      description: Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects.
+      security:
+      - BearerAuth: []
+      responses:
+        '200':
+          description: Attributes retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

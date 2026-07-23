@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+  title: BigID Authentication Actionable Insights Catalog API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
+  version: '1.0'
+  contact:
+    name: BigID Support
+    url: https://developer.bigid.com/
+    email: support@bigid.com
+  license:
+    name: BigID Terms of Service
+    url: https://bigid.com/terms/
+servers:
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
+tags:
+- name: Catalog
+  description: Browse catalog objects.
+paths:
+  /data-catalog:
+    get:
+      tags:
+      - Catalog
+      operationId: queryDataCatalog
+      summary: Query The Data Catalog
+      description: Retrieve catalog entries. Filter results with BigID's filter query syntax (e.g. `has_duplicates="true"` or `duplicate_id="{duplicateId}"`).
+      security:
+      - BearerAuth: []
+      parameters:
+      - name: filter
+        in: query
+        schema:
+          type: string
+        description: BigID filter expression.
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Catalog entries retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogResponse'
+  /data-catalog/column/cluster/similar:
+    get:
+      tags:
+      - Catalog
+      operationId: listSimilarClusterColumns
+      summary: List Similar Cluster Columns
+      description: Get all columns for the provided cluster identifier.
+      security:
+      - BearerAuth: []
+      parameters:
+      - name: cluster_id
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Columns retrieved.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    CatalogResponse:
+      type: object
+      properties:
+        totalRowsCounter:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogObject'
+    CatalogObject:
+      type: object
+      properties:
+        objectName:
+          type: string
+        objectId:
+          type: string
+        type:
+          type: string
+        source:
+          type: string
+        fullObjectName:
+          type: string
+        attribute:
+          type: array
+          items:
+            type: string
+        has_duplicates:
+          type: boolean
+        duplicate_id:
+          type: string
+        scanner_type_group:
+          type: string
+        update_date:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,11 +1,7 @@
 openapi: 3.0.3
 info:
-  title: BigID DSAR API
-  description: >-
-    Run Data Subject Access Requests (DSARs) and retrieve the resulting reports
-    via the BigID API. Inspect available DSAR profiles and identifier attributes,
-    submit new DSAR scans, poll status, and download short or full DSAR reports
-    in JSON or CSV.
+  title: BigID Authentication Actionable Insights DSAR API
+  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
   version: '1.0'
   contact:
     name: BigID Support
@@ -15,24 +11,27 @@ info:
     name: BigID Terms of Service
     url: https://bigid.com/terms/
 servers:
-  - url: https://{deployment}.bigid.com/api/v1
-    description: Customer-hosted BigID deployment.
-    variables:
-      deployment:
-        default: tenant
+- url: https://sandbox.bigid.tools/api/v1
+  description: BigID developer sandbox.
+- url: https://{deployment}.bigid.com/api/v1
+  description: Customer-hosted BigID deployment.
+  variables:
+    deployment:
+      default: tenant
+      description: Tenant subdomain assigned by BigID.
 tags:
-  - name: DSAR
-    description: Data Subject Access Request operations.
+- name: DSAR
+  description: Data Subject Access Request operations.
 paths:
   /sar/profiles:
     get:
       tags:
-        - DSAR
+      - DSAR
       operationId: listDsarProfiles
       summary: List DSAR Profiles
       description: Find DSAR profiles configured in the BigID environment.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       responses:
         '200':
           description: Profiles retrieved.
@@ -48,17 +47,17 @@ paths:
   /sar/attributes:
     get:
       tags:
-        - DSAR
+      - DSAR
       operationId: listDsarAttributes
       summary: List DSAR Attributes
       description: Retrieve the identifier attributes available for a selected DSAR profile.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: profile_id
-          in: query
-          schema:
-            type: string
+      - name: profile_id
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Attributes retrieved.
@@ -69,12 +68,12 @@ paths:
   /sar/reports:
     post:
       tags:
-        - DSAR
+      - DSAR
       operationId: createDsarReport
       summary: Create A DSAR Report
       description: Submit a DSAR scan request using the BigID API.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       requestBody:
         required: true
         content:
@@ -94,18 +93,18 @@ paths:
   /sar/reports/{requestId}/status:
     get:
       tags:
-        - DSAR
+      - DSAR
       operationId: getDsarReportStatus
       summary: Get DSAR Report Status
       description: Check the status of a DSAR request to track progress.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: requestId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Status retrieved.
@@ -119,25 +118,25 @@ paths:
   /sar/reports/{requestId}/short-report:
     get:
       tags:
-        - DSAR
+      - DSAR
       operationId: getDsarShortReport
       summary: Get DSAR Short Report
       description: Retrieve the DSAR short report in JSON or CSV.
       security:
-        - BearerAuth: []
+      - BearerAuth: []
       parameters:
-        - name: requestId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: format
-          in: query
-          schema:
-            type: string
-            enum:
-              - json
-              - csv
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
       responses:
         '200':
           description: Report retrieved.
@@ -149,26 +148,12 @@ paths:
               schema:
                 type: string
 components:
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
-    DsarProfile:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
     DsarRequest:
       type: object
       required:
-        - profileId
-        - userValues
+      - profileId
+      - userValues
       properties:
         profileId:
           type: string
@@ -183,3 +168,17 @@ components:
                 type: string
         skipAlertOnNoData:
           type: boolean
+    DsarProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
