@@ -1,0 +1,230 @@
+{
+  "info": {
+    "_postman_id": "938acf24-59af-46ce-81e5-de15d88ed500",
+    "name": "BigID Authentication Actionable Insights Metadata Export API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:37.000Z",
+    "updatedAt": "2026-07-28T01:13:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-938acf24-59af-46ce-81e5-de15d88ed500"
+  },
+  "item": [
+    {
+      "name": "data-catalog",
+      "item": [
+        {
+          "name": "object-details",
+          "item": [
+            {
+              "name": "columns",
+              "item": [
+                {
+                  "name": "Get Catalog Object Columns",
+                  "id": "7bb24fc8-74a3-48d0-856f-95c7cf436ce8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-catalog/object-details/columns",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-catalog",
+                        "object-details",
+                        "columns"
+                      ]
+                    },
+                    "description": "Retrieve column-level metadata for catalog objects."
+                  },
+                  "response": [
+                    {
+                      "id": "49de5a39-3b8d-45a4-97ff-4b53ad6beb66",
+                      "name": "Column metadata retrieved.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-catalog/object-details/columns",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-catalog",
+                            "object-details",
+                            "columns"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:13:37.000Z",
+                      "updatedAt": "2026-07-28T01:13:37.000Z",
+                      "uid": "35240-49de5a39-3b8d-45a4-97ff-4b53ad6beb66"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:13:37.000Z",
+                  "updatedAt": "2026-07-28T01:13:37.000Z",
+                  "uid": "35240-7bb24fc8-74a3-48d0-856f-95c7cf436ce8"
+                }
+              ],
+              "id": "3fb31e6d-f85a-430f-836a-d2a6aea57367",
+              "createdAt": "2026-07-28T01:13:37.000Z",
+              "updatedAt": "2026-07-28T01:13:37.000Z",
+              "uid": "35240-3fb31e6d-f85a-430f-836a-d2a6aea57367"
+            },
+            {
+              "name": "attributes",
+              "item": [
+                {
+                  "name": "Get Catalog Object Attributes",
+                  "id": "9f191af6-c2f1-4c0a-8ed9-41f045872995",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data-catalog/object-details/attributes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data-catalog",
+                        "object-details",
+                        "attributes"
+                      ]
+                    },
+                    "description": "Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects."
+                  },
+                  "response": [
+                    {
+                      "id": "5b2622a0-efb8-4d30-b32d-cb65b366055e",
+                      "name": "Attributes retrieved.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-catalog/object-details/attributes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-catalog",
+                            "object-details",
+                            "attributes"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:13:37.000Z",
+                      "updatedAt": "2026-07-28T01:13:37.000Z",
+                      "uid": "35240-5b2622a0-efb8-4d30-b32d-cb65b366055e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:13:37.000Z",
+                  "updatedAt": "2026-07-28T01:13:37.000Z",
+                  "uid": "35240-9f191af6-c2f1-4c0a-8ed9-41f045872995"
+                }
+              ],
+              "id": "82f8dd56-5d36-430c-887c-37ad4c2280a9",
+              "createdAt": "2026-07-28T01:13:37.000Z",
+              "updatedAt": "2026-07-28T01:13:37.000Z",
+              "uid": "35240-82f8dd56-5d36-430c-887c-37ad4c2280a9"
+            }
+          ],
+          "id": "c8287d30-c5ea-41bc-8cf4-dc85ec480c96",
+          "createdAt": "2026-07-28T01:13:37.000Z",
+          "updatedAt": "2026-07-28T01:13:37.000Z",
+          "uid": "35240-c8287d30-c5ea-41bc-8cf4-dc85ec480c96"
+        }
+      ],
+      "id": "af5d4fee-5eb5-449e-8d7d-8f7736a95bb8",
+      "createdAt": "2026-07-28T01:13:37.000Z",
+      "updatedAt": "2026-07-28T01:13:37.000Z",
+      "uid": "35240-af5d4fee-5eb5-449e-8d7d-8f7736a95bb8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

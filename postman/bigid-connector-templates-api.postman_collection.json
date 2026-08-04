@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "5fa6f08a-a426-4f33-977a-5a489f524974",
+    "name": "BigID Authentication Actionable Insights Connector Templates API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:36.000Z",
+    "updatedAt": "2026-07-28T01:13:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5fa6f08a-a426-4f33-977a-5a489f524974"
+  },
+  "item": [
+    {
+      "name": "ds-templates",
+      "item": [
+        {
+          "name": "{type}",
+          "item": [
+            {
+              "name": "Get A Connector Template",
+              "id": "dd6a1d66-c1fd-4922-8611-4d2796bb95f2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ds-templates/:type",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ds-templates",
+                    ":type"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d57bcf61-3067-4db3-be8d-53f6f1b80926",
+                      "key": "type",
+                      "value": "<string>",
+                      "description": "(Required) The connector template type, e.g. rdb-mysql."
+                    }
+                  ]
+                },
+                "description": "Retrieve a connector template for a specific data source type (e.g. rdb-mysql)."
+              },
+              "response": [
+                {
+                  "id": "1901cbea-318d-43b8-a7ab-3f6538cf526c",
+                  "name": "Template retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ds-templates/:type",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ds-templates",
+                        ":type"
+                      ],
+                      "variable": [
+                        {
+                          "key": "type"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:13:36.000Z",
+                  "updatedAt": "2026-07-28T01:13:36.000Z",
+                  "uid": "35240-1901cbea-318d-43b8-a7ab-3f6538cf526c"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:36.000Z",
+              "updatedAt": "2026-07-28T01:13:36.000Z",
+              "uid": "35240-dd6a1d66-c1fd-4922-8611-4d2796bb95f2"
+            }
+          ],
+          "id": "c75552d9-36c8-4f76-8eb9-8d79b8e75833",
+          "createdAt": "2026-07-28T01:13:36.000Z",
+          "updatedAt": "2026-07-28T01:13:36.000Z",
+          "uid": "35240-c75552d9-36c8-4f76-8eb9-8d79b8e75833"
+        },
+        {
+          "name": "List Connector Templates",
+          "id": "c2807d62-9ff2-4647-a1cb-e6171ed81212",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ds-templates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ds-templates"
+              ]
+            },
+            "description": "List the connector templates available in this BigID deployment."
+          },
+          "response": [
+            {
+              "id": "ea042465-40a1-4eee-80e1-402780ff283c",
+              "name": "Templates retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ds-templates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ds-templates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:13:36.000Z",
+              "updatedAt": "2026-07-28T01:13:36.000Z",
+              "uid": "35240-ea042465-40a1-4eee-80e1-402780ff283c"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:36.000Z",
+          "updatedAt": "2026-07-28T01:13:36.000Z",
+          "uid": "35240-c2807d62-9ff2-4647-a1cb-e6171ed81212"
+        }
+      ],
+      "id": "b01bd982-308d-41d6-97a3-0b21534d1e00",
+      "createdAt": "2026-07-28T01:13:36.000Z",
+      "updatedAt": "2026-07-28T01:13:36.000Z",
+      "uid": "35240-b01bd982-308d-41d6-97a3-0b21534d1e00"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

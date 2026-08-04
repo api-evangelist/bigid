@@ -1,0 +1,32 @@
+{
+  "provider": "bigid",
+  "sources": [
+    "bigid-actionable-insights-api-openapi.yml",
+    "bigid-authentication-api-openapi.yml",
+    "bigid-catalog-api-openapi.yml",
+    "bigid-clusters-api-openapi.yml",
+    "bigid-connector-templates-api-openapi.yml",
+    "bigid-data-sources-api-openapi.yml",
+    "bigid-dsar-api-openapi.yml",
+    "bigid-metadata-export-api-openapi.yml",
+    "bigid-scan-profiles-api-openapi.yml",
+    "bigid-scans-api-openapi.yml"
+  ],
+  "outputs": [
+    "bigid-actionable-insights-api-openapi.yml",
+    "bigid-authentication-api-openapi.yml",
+    "bigid-catalog-api-openapi.yml",
+    "bigid-clusters-api-openapi.yml",
+    "bigid-connector-templates-api-openapi.yml",
+    "bigid-data-sources-api-openapi.yml",
+    "bigid-dsar-api-openapi.yml",
+    "bigid-metadata-export-api-openapi.yml",
+    "bigid-scan-profiles-api-openapi.yml",
+    "bigid-scans-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

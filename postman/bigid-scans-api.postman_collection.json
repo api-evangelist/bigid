@@ -1,0 +1,442 @@
+{
+  "info": {
+    "_postman_id": "aa1d326a-40d6-4a1a-9192-e8b4583d36b3",
+    "name": "BigID Authentication Actionable Insights Scans API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:17.000Z",
+    "updatedAt": "2026-07-28T01:13:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa1d326a-40d6-4a1a-9192-e8b4583d36b3"
+  },
+  "item": [
+    {
+      "name": "scans",
+      "item": [
+        {
+          "name": "parent-scans",
+          "item": [
+            {
+              "name": "List Parent Scans",
+              "id": "148234ea-5927-4c49-96bc-584f18119734",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scans/parent-scans?sort=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scans",
+                    "parent-scans"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Retrieve parent scans with customizable query parameters."
+              },
+              "response": [
+                {
+                  "id": "d6488a81-0043-4c10-9550-85f8c7a9f72c",
+                  "name": "Parent scans retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/scans/parent-scans?sort=<string>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scans",
+                        "parent-scans"
+                      ],
+                      "query": [
+                        {
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:13:17.000Z",
+                  "updatedAt": "2026-07-28T01:13:17.000Z",
+                  "uid": "35240-d6488a81-0043-4c10-9550-85f8c7a9f72c"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:17.000Z",
+              "updatedAt": "2026-07-28T01:13:17.000Z",
+              "uid": "35240-148234ea-5927-4c49-96bc-584f18119734"
+            }
+          ],
+          "id": "5ace85ea-f197-4afc-ab2a-b5c7dbc18445",
+          "createdAt": "2026-07-28T01:13:17.000Z",
+          "updatedAt": "2026-07-28T01:13:17.000Z",
+          "uid": "35240-5ace85ea-f197-4afc-ab2a-b5c7dbc18445"
+        },
+        {
+          "name": "{scan_id}",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "Get Scan Status",
+                  "id": "c1eab616-e0d4-4392-9533-8760630e6a05",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/scans/:scan_id/status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scans",
+                        ":scan_id",
+                        "status"
+                      ],
+                      "variable": [
+                        {
+                          "id": "339859ba-e6e1-48c5-a143-b4f75c86e5f1",
+                          "key": "scan_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Check the current status of a specific scan to determine whether it is running or completed."
+                  },
+                  "response": [
+                    {
+                      "id": "4ed2544e-fad7-45ed-9800-fd167d7f53a7",
+                      "name": "Scan status retrieved.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/scans/:scan_id/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "scans",
+                            ":scan_id",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scan_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"progress\": \"<number>\"\n}",
+                      "createdAt": "2026-07-28T01:13:17.000Z",
+                      "updatedAt": "2026-07-28T01:13:17.000Z",
+                      "uid": "35240-4ed2544e-fad7-45ed-9800-fd167d7f53a7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:13:17.000Z",
+                  "updatedAt": "2026-07-28T01:13:17.000Z",
+                  "uid": "35240-c1eab616-e0d4-4392-9533-8760630e6a05"
+                }
+              ],
+              "id": "27abcedd-ee38-444a-8fe2-e2bddc82124b",
+              "createdAt": "2026-07-28T01:13:17.000Z",
+              "updatedAt": "2026-07-28T01:13:17.000Z",
+              "uid": "35240-27abcedd-ee38-444a-8fe2-e2bddc82124b"
+            }
+          ],
+          "id": "4877fd30-b8e8-4400-acd2-d0db13cf7593",
+          "createdAt": "2026-07-28T01:13:17.000Z",
+          "updatedAt": "2026-07-28T01:13:17.000Z",
+          "uid": "35240-4877fd30-b8e8-4400-acd2-d0db13cf7593"
+        },
+        {
+          "name": "List Scans",
+          "id": "e8c6d526-eb47-497a-a143-3917d1cb9a7b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/scans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scans"
+              ]
+            },
+            "description": "Retrieve a list of scan executions."
+          },
+          "response": [
+            {
+              "id": "609dde03-6c0e-47b2-8b32-72786c5df695",
+              "name": "Scans retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scans"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T01:13:17.000Z",
+              "updatedAt": "2026-07-28T01:13:17.000Z",
+              "uid": "35240-609dde03-6c0e-47b2-8b32-72786c5df695"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:17.000Z",
+          "updatedAt": "2026-07-28T01:13:17.000Z",
+          "uid": "35240-e8c6d526-eb47-497a-a143-3917d1cb9a7b"
+        },
+        {
+          "name": "Start A Scan",
+          "id": "e6671bd6-6d12-4c28-982d-507bf80c269f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scanProfileId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/scans",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scans"
+              ]
+            },
+            "description": "Trigger a scan based on a scan profile."
+          },
+          "response": [
+            {
+              "id": "0543f531-ce3e-4c52-80e3-1baaa3ac3df8",
+              "name": "Scan started.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scanProfileId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scans"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:13:17.000Z",
+              "updatedAt": "2026-07-28T01:13:17.000Z",
+              "uid": "35240-0543f531-ce3e-4c52-80e3-1baaa3ac3df8"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:17.000Z",
+          "updatedAt": "2026-07-28T01:13:17.000Z",
+          "uid": "35240-e6671bd6-6d12-4c28-982d-507bf80c269f"
+        }
+      ],
+      "id": "9a5f7c68-2e91-4da4-a673-5d9be25ef62b",
+      "createdAt": "2026-07-28T01:13:17.000Z",
+      "updatedAt": "2026-07-28T01:13:17.000Z",
+      "uid": "35240-9a5f7c68-2e91-4da4-a673-5d9be25ef62b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

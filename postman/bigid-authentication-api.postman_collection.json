@@ -1,0 +1,292 @@
+{
+  "info": {
+    "_postman_id": "7f3023f0-3d61-455c-8ea4-1a5096587367",
+    "name": "BigID Actionable Insights Authentication API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:15.000Z",
+    "updatedAt": "2026-07-28T01:13:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f3023f0-3d61-455c-8ea4-1a5096587367"
+  },
+  "item": [
+    {
+      "name": "sessions",
+      "item": [
+        {
+          "name": "Create A User Session",
+          "id": "f845cc15-e9ac-4082-9216-392a8506505b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sessions"
+              ]
+            },
+            "description": "Authenticate a user with username and password. Returns an auth_token that is used as a Bearer credential in subsequent requests."
+          },
+          "response": [
+            {
+              "id": "25d31138-ef85-4f57-948b-7e7b0efa9bfe",
+              "name": "Session created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"auth_token\": \"<string>\",\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T01:13:15.000Z",
+              "updatedAt": "2026-07-28T01:13:15.000Z",
+              "uid": "35240-25d31138-ef85-4f57-948b-7e7b0efa9bfe"
+            },
+            {
+              "id": "6f926848-880f-4db1-a664-4c2ef4cece04",
+              "name": "Invalid credentials.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sessions"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:13:15.000Z",
+              "updatedAt": "2026-07-28T01:13:15.000Z",
+              "uid": "35240-6f926848-880f-4db1-a664-4c2ef4cece04"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:15.000Z",
+          "updatedAt": "2026-07-28T01:13:15.000Z",
+          "uid": "35240-f845cc15-e9ac-4082-9216-392a8506505b"
+        }
+      ],
+      "id": "66bbf839-e237-436a-94be-c991478ad8a0",
+      "createdAt": "2026-07-28T01:13:15.000Z",
+      "updatedAt": "2026-07-28T01:13:15.000Z",
+      "uid": "35240-66bbf839-e237-436a-94be-c991478ad8a0"
+    },
+    {
+      "name": "refresh-access-token",
+      "item": [
+        {
+          "name": "Refresh Access Token",
+          "id": "d9a78f49-9853-4823-a680-088352d7cff5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/refresh-access-token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refresh-access-token"
+              ]
+            },
+            "description": "Exchange a long-lived user token for a short-lived system token used to authorize calls against the BigID REST API. Pass the user token in the Authorization header."
+          },
+          "response": [
+            {
+              "id": "943ecb98-63c9-4a9e-b498-6325f161e525",
+              "name": "System token issued.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-access-token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-access-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"systemToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:13:15.000Z",
+              "updatedAt": "2026-07-28T01:13:15.000Z",
+              "uid": "35240-943ecb98-63c9-4a9e-b498-6325f161e525"
+            },
+            {
+              "id": "85830e23-e619-4fd9-92c5-b02dde38df24",
+              "name": "Invalid user token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refresh-access-token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refresh-access-token"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:13:15.000Z",
+              "updatedAt": "2026-07-28T01:13:15.000Z",
+              "uid": "35240-85830e23-e619-4fd9-92c5-b02dde38df24"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:15.000Z",
+          "updatedAt": "2026-07-28T01:13:15.000Z",
+          "uid": "35240-d9a78f49-9853-4823-a680-088352d7cff5"
+        }
+      ],
+      "id": "1f1cde72-7ecf-4829-9a44-d5978266762f",
+      "createdAt": "2026-07-28T01:13:15.000Z",
+      "updatedAt": "2026-07-28T01:13:15.000Z",
+      "uid": "35240-1f1cde72-7ecf-4829-9a44-d5978266762f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

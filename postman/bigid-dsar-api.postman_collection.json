@@ -1,0 +1,594 @@
+{
+  "info": {
+    "_postman_id": "a250c591-2194-497a-81bb-876c75f4c835",
+    "name": "BigID Authentication Actionable Insights DSAR API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:18.000Z",
+    "updatedAt": "2026-07-28T01:13:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a250c591-2194-497a-81bb-876c75f4c835"
+  },
+  "item": [
+    {
+      "name": "sar",
+      "item": [
+        {
+          "name": "profiles",
+          "item": [
+            {
+              "name": "List DSAR Profiles",
+              "id": "747d5fce-32c1-4276-ace9-1003ba82c1e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sar/profiles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sar",
+                    "profiles"
+                  ]
+                },
+                "description": "Find DSAR profiles configured in the BigID environment."
+              },
+              "response": [
+                {
+                  "id": "282d7165-b3ae-4082-a024-9c109a7fb720",
+                  "name": "Profiles retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sar/profiles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sar",
+                        "profiles"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:13:18.000Z",
+                  "updatedAt": "2026-07-28T01:13:18.000Z",
+                  "uid": "35240-282d7165-b3ae-4082-a024-9c109a7fb720"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:18.000Z",
+              "updatedAt": "2026-07-28T01:13:18.000Z",
+              "uid": "35240-747d5fce-32c1-4276-ace9-1003ba82c1e0"
+            }
+          ],
+          "id": "9d28384c-1090-4f88-90a8-a8fc447642aa",
+          "createdAt": "2026-07-28T01:13:18.000Z",
+          "updatedAt": "2026-07-28T01:13:18.000Z",
+          "uid": "35240-9d28384c-1090-4f88-90a8-a8fc447642aa"
+        },
+        {
+          "name": "attributes",
+          "item": [
+            {
+              "name": "List DSAR Attributes",
+              "id": "9934265c-e2e2-4626-a8f4-027b59ff229d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sar/attributes?profile_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sar",
+                    "attributes"
+                  ],
+                  "query": [
+                    {
+                      "key": "profile_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve the identifier attributes available for a selected DSAR profile."
+              },
+              "response": [
+                {
+                  "id": "513085d0-2b60-4648-b21d-b8b24d2117fd",
+                  "name": "Attributes retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sar/attributes?profile_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sar",
+                        "attributes"
+                      ],
+                      "query": [
+                        {
+                          "key": "profile_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:13:18.000Z",
+                  "updatedAt": "2026-07-28T01:13:18.000Z",
+                  "uid": "35240-513085d0-2b60-4648-b21d-b8b24d2117fd"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:18.000Z",
+              "updatedAt": "2026-07-28T01:13:18.000Z",
+              "uid": "35240-9934265c-e2e2-4626-a8f4-027b59ff229d"
+            }
+          ],
+          "id": "d75933a3-d23a-4d23-b556-ba302454fa16",
+          "createdAt": "2026-07-28T01:13:18.000Z",
+          "updatedAt": "2026-07-28T01:13:18.000Z",
+          "uid": "35240-d75933a3-d23a-4d23-b556-ba302454fa16"
+        },
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "{requestId}",
+              "item": [
+                {
+                  "name": "status",
+                  "item": [
+                    {
+                      "name": "Get DSAR Report Status",
+                      "id": "0324666d-0ef3-4542-a8b2-5bcf5d092c89",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sar/reports/:requestId/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sar",
+                            "reports",
+                            ":requestId",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4b94c17a-953b-4c15-8423-f547155d091e",
+                              "key": "requestId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Check the status of a DSAR request to track progress."
+                      },
+                      "response": [
+                        {
+                          "id": "33968dde-6440-4664-aa41-eeeb8bac6313",
+                          "name": "Status retrieved.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sar/reports/:requestId/status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sar",
+                                "reports",
+                                ":requestId",
+                                "status"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "requestId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:13:18.000Z",
+                          "updatedAt": "2026-07-28T01:13:18.000Z",
+                          "uid": "35240-33968dde-6440-4664-aa41-eeeb8bac6313"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:13:18.000Z",
+                      "updatedAt": "2026-07-28T01:13:18.000Z",
+                      "uid": "35240-0324666d-0ef3-4542-a8b2-5bcf5d092c89"
+                    }
+                  ],
+                  "id": "42f14308-f559-4556-aa44-e02bbc92179f",
+                  "createdAt": "2026-07-28T01:13:18.000Z",
+                  "updatedAt": "2026-07-28T01:13:18.000Z",
+                  "uid": "35240-42f14308-f559-4556-aa44-e02bbc92179f"
+                },
+                {
+                  "name": "short-report",
+                  "item": [
+                    {
+                      "name": "Get DSAR Short Report",
+                      "id": "b64c2327-a5d3-4a95-9645-ece85aadb05d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sar/reports/:requestId/short-report?format=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sar",
+                            "reports",
+                            ":requestId",
+                            "short-report"
+                          ],
+                          "query": [
+                            {
+                              "key": "format",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "4e8010a6-3adb-43e2-b08b-e9a471f85331",
+                              "key": "requestId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the DSAR short report in JSON or CSV."
+                      },
+                      "response": [
+                        {
+                          "id": "0f198c59-a8ba-4652-a4c7-f3472a6d0d93",
+                          "name": "Report retrieved.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sar/reports/:requestId/short-report?format=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sar",
+                                "reports",
+                                ":requestId",
+                                "short-report"
+                              ],
+                              "query": [
+                                {
+                                  "key": "format",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "requestId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:13:18.000Z",
+                          "updatedAt": "2026-07-28T01:13:18.000Z",
+                          "uid": "35240-0f198c59-a8ba-4652-a4c7-f3472a6d0d93"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:13:18.000Z",
+                      "updatedAt": "2026-07-28T01:13:18.000Z",
+                      "uid": "35240-b64c2327-a5d3-4a95-9645-ece85aadb05d"
+                    }
+                  ],
+                  "id": "be3c00de-69f9-4078-9d4a-6885f73cc871",
+                  "createdAt": "2026-07-28T01:13:18.000Z",
+                  "updatedAt": "2026-07-28T01:13:18.000Z",
+                  "uid": "35240-be3c00de-69f9-4078-9d4a-6885f73cc871"
+                }
+              ],
+              "id": "193f2626-97f5-4b27-ae7b-f74ef03edf2d",
+              "createdAt": "2026-07-28T01:13:18.000Z",
+              "updatedAt": "2026-07-28T01:13:18.000Z",
+              "uid": "35240-193f2626-97f5-4b27-ae7b-f74ef03edf2d"
+            },
+            {
+              "name": "Create A DSAR Report",
+              "id": "0df4989a-4a01-4a51-a936-5a4f18c4681c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"profileId\": \"<string>\",\n  \"userValues\": [\n    {\n      \"attributeName\": \"<string>\",\n      \"attributeValue\": \"<string>\"\n    },\n    {\n      \"attributeName\": \"<string>\",\n      \"attributeValue\": \"<string>\"\n    }\n  ],\n  \"skipAlertOnNoData\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sar/reports",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sar",
+                    "reports"
+                  ]
+                },
+                "description": "Submit a DSAR scan request using the BigID API."
+              },
+              "response": [
+                {
+                  "id": "0ef50164-f900-4d06-bf71-8338bb42782e",
+                  "name": "DSAR request accepted.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"profileId\": \"<string>\",\n  \"userValues\": [\n    {\n      \"attributeName\": \"<string>\",\n      \"attributeValue\": \"<string>\"\n    },\n    {\n      \"attributeName\": \"<string>\",\n      \"attributeValue\": \"<string>\"\n    }\n  ],\n  \"skipAlertOnNoData\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sar/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sar",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"requestId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:13:18.000Z",
+                  "updatedAt": "2026-07-28T01:13:18.000Z",
+                  "uid": "35240-0ef50164-f900-4d06-bf71-8338bb42782e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:18.000Z",
+              "updatedAt": "2026-07-28T01:13:18.000Z",
+              "uid": "35240-0df4989a-4a01-4a51-a936-5a4f18c4681c"
+            }
+          ],
+          "id": "67416673-1463-4e29-8c48-57115e610126",
+          "createdAt": "2026-07-28T01:13:18.000Z",
+          "updatedAt": "2026-07-28T01:13:18.000Z",
+          "uid": "35240-67416673-1463-4e29-8c48-57115e610126"
+        }
+      ],
+      "id": "0c9da22b-47e4-4bdf-b0ed-72e193dbbc43",
+      "createdAt": "2026-07-28T01:13:18.000Z",
+      "updatedAt": "2026-07-28T01:13:18.000Z",
+      "uid": "35240-0c9da22b-47e4-4bdf-b0ed-72e193dbbc43"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "b4afb548-dbd2-46cc-be4d-ecd39d6fea0e",
+    "name": "BigID Authentication Actionable Insights Clusters API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:28.000Z",
+    "updatedAt": "2026-07-28T01:13:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b4afb548-dbd2-46cc-be4d-ecd39d6fea0e"
+  },
+  "item": [
+    {
+      "name": "clusters",
+      "item": [
+        {
+          "name": "List Clusters",
+          "id": "9aed0a9b-fc54-47c8-98cd-175ac612271f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/clusters?filter=<string>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clusters"
+              ],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of clusters with optional filtering."
+          },
+          "response": [
+            {
+              "id": "b3c1fb7d-7d5b-4456-a07a-5b00edfc55dd",
+              "name": "Clusters retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/clusters?filter=<string>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "clusters"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"clusters\": [\n      {\n        \"clusterId\": \"<string>\",\n        \"clusterName\": \"<string>\",\n        \"type\": \"<string>\",\n        \"size\": \"<integer>\",\n        \"members\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"attribute\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"clusterId\": \"<string>\",\n        \"clusterName\": \"<string>\",\n        \"type\": \"<string>\",\n        \"size\": \"<integer>\",\n        \"members\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"attribute\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:13:28.000Z",
+              "updatedAt": "2026-07-28T01:13:28.000Z",
+              "uid": "35240-b3c1fb7d-7d5b-4456-a07a-5b00edfc55dd"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:28.000Z",
+          "updatedAt": "2026-07-28T01:13:28.000Z",
+          "uid": "35240-9aed0a9b-fc54-47c8-98cd-175ac612271f"
+        }
+      ],
+      "id": "78afdb90-afe4-4d1c-8bbd-76c7c78a8c11",
+      "createdAt": "2026-07-28T01:13:28.000Z",
+      "updatedAt": "2026-07-28T01:13:28.000Z",
+      "uid": "35240-78afdb90-afe4-4d1c-8bbd-76c7c78a8c11"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

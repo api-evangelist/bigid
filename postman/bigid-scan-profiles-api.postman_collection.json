@@ -1,0 +1,247 @@
+{
+  "info": {
+    "_postman_id": "ec20b850-f9db-4b2b-b05d-d90672ec404c",
+    "name": "BigID Authentication Actionable Insights Scan Profiles API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:38.000Z",
+    "updatedAt": "2026-07-28T01:13:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ec20b850-f9db-4b2b-b05d-d90672ec404c"
+  },
+  "item": [
+    {
+      "name": "scanProfiles",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get A Scan Profile",
+              "id": "8e2605c6-85b3-49fa-a837-1ac5cf92aa74",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/scanProfiles/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scanProfiles",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b4d55383-c152-440f-86a4-c8dd1cc593b4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of a scan profile by its identifier."
+              },
+              "response": [
+                {
+                  "id": "428e9c1b-951e-4799-a2fd-38ab1e3519dd",
+                  "name": "Scan profile retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/scanProfiles/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "scanProfiles",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:13:38.000Z",
+                  "updatedAt": "2026-07-28T01:13:38.000Z",
+                  "uid": "35240-428e9c1b-951e-4799-a2fd-38ab1e3519dd"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:38.000Z",
+              "updatedAt": "2026-07-28T01:13:38.000Z",
+              "uid": "35240-8e2605c6-85b3-49fa-a837-1ac5cf92aa74"
+            }
+          ],
+          "id": "48d06142-6118-4ff0-88c2-7b44931dae8e",
+          "createdAt": "2026-07-28T01:13:38.000Z",
+          "updatedAt": "2026-07-28T01:13:38.000Z",
+          "uid": "35240-48d06142-6118-4ff0-88c2-7b44931dae8e"
+        },
+        {
+          "name": "Create A Scan Profile",
+          "id": "beda360f-13a6-4e5a-8873-0b2a294ad0b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/scanProfiles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "scanProfiles"
+              ]
+            },
+            "description": "Create a new scan profile that controls which data sources are scanned and using which template."
+          },
+          "response": [
+            {
+              "id": "0439f5e0-bbfd-4ec7-999a-883d6a54b006",
+              "name": "Scan profile created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/scanProfiles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "scanProfiles"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:13:38.000Z",
+              "updatedAt": "2026-07-28T01:13:38.000Z",
+              "uid": "35240-0439f5e0-bbfd-4ec7-999a-883d6a54b006"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:38.000Z",
+          "updatedAt": "2026-07-28T01:13:38.000Z",
+          "uid": "35240-beda360f-13a6-4e5a-8873-0b2a294ad0b2"
+        }
+      ],
+      "id": "f32086af-1b7d-4634-be9d-7d807ffecb35",
+      "createdAt": "2026-07-28T01:13:38.000Z",
+      "updatedAt": "2026-07-28T01:13:38.000Z",
+      "uid": "35240-f32086af-1b7d-4634-be9d-7d807ffecb35"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

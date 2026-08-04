@@ -1,0 +1,270 @@
+{
+  "info": {
+    "_postman_id": "02493b01-58cd-4121-a188-fe2db8ad7641",
+    "name": "BigID Authentication Actionable Insights Catalog API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:19.000Z",
+    "updatedAt": "2026-07-28T01:13:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02493b01-58cd-4121-a188-fe2db8ad7641"
+  },
+  "item": [
+    {
+      "name": "data-catalog",
+      "item": [
+        {
+          "name": "column",
+          "item": [
+            {
+              "name": "cluster",
+              "item": [
+                {
+                  "name": "similar",
+                  "item": [
+                    {
+                      "name": "List Similar Cluster Columns",
+                      "id": "6ab290bb-b0bb-4a18-a6e1-b0878d837eb0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data-catalog/column/cluster/similar?cluster_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data-catalog",
+                            "column",
+                            "cluster",
+                            "similar"
+                          ],
+                          "query": [
+                            {
+                              "key": "cluster_id",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Get all columns for the provided cluster identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "28ae1ac5-8185-4d68-8b54-c6af630903be",
+                          "name": "Columns retrieved.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/data-catalog/column/cluster/similar?cluster_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "data-catalog",
+                                "column",
+                                "cluster",
+                                "similar"
+                              ],
+                              "query": [
+                                {
+                                  "key": "cluster_id",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-07-28T01:13:20.000Z",
+                          "updatedAt": "2026-07-28T01:13:20.000Z",
+                          "uid": "35240-28ae1ac5-8185-4d68-8b54-c6af630903be"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:13:20.000Z",
+                      "updatedAt": "2026-07-28T01:13:20.000Z",
+                      "uid": "35240-6ab290bb-b0bb-4a18-a6e1-b0878d837eb0"
+                    }
+                  ],
+                  "id": "6d9d59d7-30d3-422e-9d00-74a9dd8f34ef",
+                  "createdAt": "2026-07-28T01:13:20.000Z",
+                  "updatedAt": "2026-07-28T01:13:20.000Z",
+                  "uid": "35240-6d9d59d7-30d3-422e-9d00-74a9dd8f34ef"
+                }
+              ],
+              "id": "95c90ce6-8aaa-478a-9838-263fb7bc8396",
+              "createdAt": "2026-07-28T01:13:20.000Z",
+              "updatedAt": "2026-07-28T01:13:20.000Z",
+              "uid": "35240-95c90ce6-8aaa-478a-9838-263fb7bc8396"
+            }
+          ],
+          "id": "073ce350-c5ef-4ea0-9d7e-883941f7752d",
+          "createdAt": "2026-07-28T01:13:20.000Z",
+          "updatedAt": "2026-07-28T01:13:20.000Z",
+          "uid": "35240-073ce350-c5ef-4ea0-9d7e-883941f7752d"
+        },
+        {
+          "name": "Query The Data Catalog",
+          "id": "fc3ee05f-1d98-4f57-91c5-d20ceabee675",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/data-catalog?filter=<string>&limit=<integer>&offset=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "data-catalog"
+              ],
+              "query": [
+                {
+                  "description": "BigID filter expression.",
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve catalog entries. Filter results with BigID's filter query syntax (e.g. `has_duplicates=\"true\"` or `duplicate_id=\"{duplicateId}\"`)."
+          },
+          "response": [
+            {
+              "id": "72149020-2c11-4600-87ea-519944d4d5eb",
+              "name": "Catalog entries retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data-catalog?filter=<string>&limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data-catalog"
+                  ],
+                  "query": [
+                    {
+                      "description": "BigID filter expression.",
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"totalRowsCounter\": \"<integer>\",\n  \"results\": [\n    {\n      \"objectName\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"source\": \"<string>\",\n      \"fullObjectName\": \"<string>\",\n      \"attribute\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"has_duplicates\": \"<boolean>\",\n      \"duplicate_id\": \"<string>\",\n      \"scanner_type_group\": \"<string>\",\n      \"update_date\": \"<dateTime>\"\n    },\n    {\n      \"objectName\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"type\": \"<string>\",\n      \"source\": \"<string>\",\n      \"fullObjectName\": \"<string>\",\n      \"attribute\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"has_duplicates\": \"<boolean>\",\n      \"duplicate_id\": \"<string>\",\n      \"scanner_type_group\": \"<string>\",\n      \"update_date\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:13:20.000Z",
+              "updatedAt": "2026-07-28T01:13:20.000Z",
+              "uid": "35240-72149020-2c11-4600-87ea-519944d4d5eb"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:20.000Z",
+          "updatedAt": "2026-07-28T01:13:20.000Z",
+          "uid": "35240-fc3ee05f-1d98-4f57-91c5-d20ceabee675"
+        }
+      ],
+      "id": "c8896440-6e5e-4d23-a7f1-22331b341be7",
+      "createdAt": "2026-07-28T01:13:20.000Z",
+      "updatedAt": "2026-07-28T01:13:20.000Z",
+      "uid": "35240-c8896440-6e5e-4d23-a7f1-22331b341be7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

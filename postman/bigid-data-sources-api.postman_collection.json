@@ -1,0 +1,457 @@
+{
+  "info": {
+    "_postman_id": "3ea94a81-e877-4f61-a602-7b22861eb679",
+    "name": "BigID Authentication Actionable Insights Data Sources API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:16.000Z",
+    "updatedAt": "2026-07-28T01:13:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3ea94a81-e877-4f61-a602-7b22861eb679"
+  },
+  "item": [
+    {
+      "name": "ds-connections",
+      "item": [
+        {
+          "name": "file-download",
+          "item": [
+            {
+              "name": "export",
+              "item": [
+                {
+                  "name": "Export Data Sources",
+                  "id": "948c6983-2c4c-4ee0-9f3f-90f02dd5de7a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ds-connections/file-download/export",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ds-connections",
+                        "file-download",
+                        "export"
+                      ]
+                    },
+                    "description": "Export the configured data sources for the deployment as a JSON file."
+                  },
+                  "response": [
+                    {
+                      "id": "9ed35224-29d0-4f9d-bd81-524c035d10e1",
+                      "name": "Data sources exported.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ds-connections/file-download/export",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ds-connections",
+                            "file-download",
+                            "export"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T01:13:16.000Z",
+                      "updatedAt": "2026-07-28T01:13:16.000Z",
+                      "uid": "35240-9ed35224-29d0-4f9d-bd81-524c035d10e1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:13:16.000Z",
+                  "updatedAt": "2026-07-28T01:13:16.000Z",
+                  "uid": "35240-948c6983-2c4c-4ee0-9f3f-90f02dd5de7a"
+                }
+              ],
+              "id": "79e755d5-317d-4522-84c9-3629b1276df8",
+              "createdAt": "2026-07-28T01:13:16.000Z",
+              "updatedAt": "2026-07-28T01:13:16.000Z",
+              "uid": "35240-79e755d5-317d-4522-84c9-3629b1276df8"
+            }
+          ],
+          "id": "c50e2abc-8e99-4b91-aa34-d8ff834103f9",
+          "createdAt": "2026-07-28T01:13:16.000Z",
+          "updatedAt": "2026-07-28T01:13:16.000Z",
+          "uid": "35240-c50e2abc-8e99-4b91-aa34-d8ff834103f9"
+        },
+        {
+          "name": "List Data Sources",
+          "id": "63201a6d-2a68-42d1-a03b-804eee6da1b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ds-connections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ds-connections"
+              ]
+            },
+            "description": "Retrieve all configured data sources for the BigID deployment."
+          },
+          "response": [
+            {
+              "id": "1ad3b70b-23f9-44fc-9705-7b6ba5e7d336",
+              "name": "Data sources retrieved.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ds-connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ds-connections"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"statusCode\": \"<integer>\",\n  \"data\": {\n    \"ds_connections\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"location\": \"<string>\",\n        \"username\": \"<string>\",\n        \"password\": \"<string>\",\n        \"scope\": \"<string>\",\n        \"enabled\": \"no\",\n        \"scanner_group\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\",\n        \"location\": \"<string>\",\n        \"username\": \"<string>\",\n        \"password\": \"<string>\",\n        \"scope\": \"<string>\",\n        \"enabled\": \"yes\",\n        \"scanner_group\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:13:16.000Z",
+              "updatedAt": "2026-07-28T01:13:16.000Z",
+              "uid": "35240-1ad3b70b-23f9-44fc-9705-7b6ba5e7d336"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:16.000Z",
+          "updatedAt": "2026-07-28T01:13:16.000Z",
+          "uid": "35240-63201a6d-2a68-42d1-a03b-804eee6da1b0"
+        }
+      ],
+      "id": "409a0c80-8c01-4794-bb51-dd230711adc3",
+      "createdAt": "2026-07-28T01:13:16.000Z",
+      "updatedAt": "2026-07-28T01:13:16.000Z",
+      "uid": "35240-409a0c80-8c01-4794-bb51-dd230711adc3"
+    },
+    {
+      "name": "ds_connections",
+      "item": [
+        {
+          "name": "Create A Data Source",
+          "id": "3089dc96-c7df-4156-b6d9-4092d638e676",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"enabled\": \"no\",\n  \"scanner_group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ds_connections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ds_connections"
+              ]
+            },
+            "description": "Create a new data source connection in BigID."
+          },
+          "response": [
+            {
+              "id": "1ba2ec68-d24c-4210-a8c7-e4238d4536ed",
+              "name": "Data source created.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"enabled\": \"no\",\n  \"scanner_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ds_connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ds_connections"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"enabled\": \"no\",\n  \"scanner_group\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:13:16.000Z",
+              "updatedAt": "2026-07-28T01:13:16.000Z",
+              "uid": "35240-1ba2ec68-d24c-4210-a8c7-e4238d4536ed"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:16.000Z",
+          "updatedAt": "2026-07-28T01:13:16.000Z",
+          "uid": "35240-3089dc96-c7df-4156-b6d9-4092d638e676"
+        }
+      ],
+      "id": "f06a24ed-33fb-48fa-9a4a-38fc26b89b48",
+      "createdAt": "2026-07-28T01:13:16.000Z",
+      "updatedAt": "2026-07-28T01:13:16.000Z",
+      "uid": "35240-f06a24ed-33fb-48fa-9a4a-38fc26b89b48"
+    },
+    {
+      "name": "ds-connection-test",
+      "item": [
+        {
+          "name": "Test A Data Source Connection",
+          "id": "9282b061-5e34-4193-a5e6-5b2ae04a4a5d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"enabled\": \"no\",\n  \"scanner_group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ds-connection-test",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ds-connection-test"
+              ]
+            },
+            "description": "Validate connectivity to a data source using a candidate configuration before persisting the connection. Returns the test result and any error details."
+          },
+          "response": [
+            {
+              "id": "bda12fc7-66c9-409e-9ff7-b220fe280ffe",
+              "name": "Connection test executed.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"location\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"enabled\": \"no\",\n  \"scanner_group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ds-connection-test",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ds-connection-test"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:13:16.000Z",
+              "updatedAt": "2026-07-28T01:13:16.000Z",
+              "uid": "35240-bda12fc7-66c9-409e-9ff7-b220fe280ffe"
+            }
+          ],
+          "createdAt": "2026-07-28T01:13:16.000Z",
+          "updatedAt": "2026-07-28T01:13:16.000Z",
+          "uid": "35240-9282b061-5e34-4193-a5e6-5b2ae04a4a5d"
+        }
+      ],
+      "id": "e89818c1-86c2-4e5e-b4bc-56aa8f052c28",
+      "createdAt": "2026-07-28T01:13:16.000Z",
+      "updatedAt": "2026-07-28T01:13:16.000Z",
+      "uid": "35240-e89818c1-86c2-4e5e-b4bc-56aa8f052c28"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    }
+  ]
+}

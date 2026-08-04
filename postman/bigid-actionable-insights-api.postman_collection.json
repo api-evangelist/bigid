@@ -1,0 +1,397 @@
+{
+  "info": {
+    "_postman_id": "c8461dc6-82a2-4bf9-9e29-2d411fe6c859",
+    "name": "BigID Authentication Actionable Insights API",
+    "description": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:13:18.000Z",
+    "updatedAt": "2026-07-28T01:13:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c8461dc6-82a2-4bf9-9e29-2d411fe6c859"
+  },
+  "item": [
+    {
+      "name": "actionable-insights",
+      "item": [
+        {
+          "name": "all-cases",
+          "item": [
+            {
+              "name": "List Actionable Insights Cases",
+              "id": "90e53aaf-2c3a-4b2a-b380-2888896b1d67",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/actionable-insights/all-cases?filter=<string>&limit=<integer>&skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "actionable-insights",
+                    "all-cases"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Fetch all existing security issues. Limit the selection with query parameters that filter by severity, status, asset type, or policy."
+              },
+              "response": [
+                {
+                  "id": "6d71f727-67a4-460f-9ff3-b563d23e830b",
+                  "name": "Cases retrieved.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/actionable-insights/all-cases?filter=<string>&limit=<integer>&skip=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "actionable-insights",
+                        "all-cases"
+                      ],
+                      "query": [
+                        {
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "skip",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"cases\": [\n      {\n        \"caseId\": \"<string>\",\n        \"caseStatus\": \"resolved\",\n        \"severityLevel\": \"low\",\n        \"policyName\": \"<string>\",\n        \"dataSourceName\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"auditReason\": \"<string>\"\n      },\n      {\n        \"caseId\": \"<string>\",\n        \"caseStatus\": \"acknowledged\",\n        \"severityLevel\": \"critical\",\n        \"policyName\": \"<string>\",\n        \"dataSourceName\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"auditReason\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:13:19.000Z",
+                  "updatedAt": "2026-07-28T01:13:19.000Z",
+                  "uid": "35240-6d71f727-67a4-460f-9ff3-b563d23e830b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:19.000Z",
+              "updatedAt": "2026-07-28T01:13:19.000Z",
+              "uid": "35240-90e53aaf-2c3a-4b2a-b380-2888896b1d67"
+            }
+          ],
+          "id": "19e74fa9-8dea-46e3-b36a-c3cd82a8666a",
+          "createdAt": "2026-07-28T01:13:19.000Z",
+          "updatedAt": "2026-07-28T01:13:19.000Z",
+          "uid": "35240-19e74fa9-8dea-46e3-b36a-c3cd82a8666a"
+        },
+        {
+          "name": "cases:{actionType}",
+          "item": [
+            {
+              "name": "Bulk Update Actionable Insights Cases",
+              "id": "2104e9e3-6e57-4e17-a409-4aa99291eeea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/actionable-insights/cases:{{actionType}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "actionable-insights",
+                    "cases:{{actionType}}"
+                  ]
+                },
+                "description": "Mark issues as resolved or update field values in bulk based on a filter expression."
+              },
+              "response": [
+                {
+                  "id": "9b2cec15-21ec-430e-b22b-85986600adec",
+                  "name": "Update accepted.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/actionable-insights/cases:{{actionType}}",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "actionable-insights",
+                        "cases:{{actionType}}"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:13:19.000Z",
+                  "updatedAt": "2026-07-28T01:13:19.000Z",
+                  "uid": "35240-9b2cec15-21ec-430e-b22b-85986600adec"
+                }
+              ],
+              "createdAt": "2026-07-28T01:13:19.000Z",
+              "updatedAt": "2026-07-28T01:13:19.000Z",
+              "uid": "35240-2104e9e3-6e57-4e17-a409-4aa99291eeea"
+            }
+          ],
+          "id": "c9606b87-c6c2-4658-95dd-0268308047db",
+          "createdAt": "2026-07-28T01:13:19.000Z",
+          "updatedAt": "2026-07-28T01:13:19.000Z",
+          "uid": "35240-c9606b87-c6c2-4658-95dd-0268308047db"
+        },
+        {
+          "name": "case-status",
+          "item": [
+            {
+              "name": "{caseId}",
+              "item": [
+                {
+                  "name": "Update Actionable Insights Case Status",
+                  "id": "db8e1b4a-774a-4efa-be96-614fbaf78117",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"status\": \"acknowledged\",\n  \"auditReason\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/actionable-insights/case-status/:caseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "actionable-insights",
+                        "case-status",
+                        ":caseId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a29325f6-42fb-4821-8e3a-fcae5665fbd0",
+                          "key": "caseId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Update the status of a specific case (e.g. resolved) with an audit reason."
+                  },
+                  "response": [
+                    {
+                      "id": "201cdddf-bd48-40b9-b398-1a5c2d1487dc",
+                      "name": "Case status updated.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"status\": \"acknowledged\",\n  \"auditReason\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/actionable-insights/case-status/:caseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "actionable-insights",
+                            "case-status",
+                            ":caseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "caseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:13:19.000Z",
+                      "updatedAt": "2026-07-28T01:13:19.000Z",
+                      "uid": "35240-201cdddf-bd48-40b9-b398-1a5c2d1487dc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:13:19.000Z",
+                  "updatedAt": "2026-07-28T01:13:19.000Z",
+                  "uid": "35240-db8e1b4a-774a-4efa-be96-614fbaf78117"
+                }
+              ],
+              "id": "c8f6edc8-158b-4746-a10d-b574942fb62c",
+              "createdAt": "2026-07-28T01:13:19.000Z",
+              "updatedAt": "2026-07-28T01:13:19.000Z",
+              "uid": "35240-c8f6edc8-158b-4746-a10d-b574942fb62c"
+            }
+          ],
+          "id": "528ca777-d55e-4cf9-bf6e-97f4e03f878c",
+          "createdAt": "2026-07-28T01:13:19.000Z",
+          "updatedAt": "2026-07-28T01:13:19.000Z",
+          "uid": "35240-528ca777-d55e-4cf9-bf6e-97f4e03f878c"
+        }
+      ],
+      "id": "b4f9fd95-0d8b-400b-8030-3b23d82a96d5",
+      "createdAt": "2026-07-28T01:13:19.000Z",
+      "updatedAt": "2026-07-28T01:13:19.000Z",
+      "uid": "35240-b4f9fd95-0d8b-400b-8030-3b23d82a96d5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.bigid.tools/api/v1"
+    },
+    {
+      "key": "actionType",
+      "value": "update"
+    }
+  ]
+}
