@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "d8565ebe-d446-4e67-93e8-32cf3fa41afd",
+      "name": "Metadata Export",
+      "description": {
+        "content": "Export catalog metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a65e295d-4737-42f3-8a5c-be038b4f8bfe",
+          "name": "Get Catalog Object Columns",
+          "request": {
+            "name": "Get Catalog Object Columns",
+            "description": {
+              "content": "Retrieve column-level metadata for catalog objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog",
+                "object-details",
+                "columns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "612f339f-0833-4c6b-9d3e-69dc3c13bb89",
+              "name": "Column metadata retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog",
+                    "object-details",
+                    "columns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4202986f-e944-4022-a312-5235826bf2c7",
+          "name": "Get Catalog Object Attributes",
+          "request": {
+            "name": "Get Catalog Object Attributes",
+            "description": {
+              "content": "Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data-catalog",
+                "object-details",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "613b9a9d-e53e-48b2-8267-cb7ed9dbb46f",
+              "name": "Attributes retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data-catalog",
+                    "object-details",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sandbox.bigid.tools/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6570c044-88f1-4e03-bdb0-ad35467f6ca1",
+    "name": "BigID Authentication Actionable Insights Metadata Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+      "type": "text/plain"
+    }
+  }
+}

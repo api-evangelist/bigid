@@ -1,211 +1,26 @@
 {
   "item": [
     {
-      "id": "ba988ac7-0d04-44ea-ad2b-ecc8c62b3240",
-      "name": "Scans",
+      "id": "4388843d-1bc0-431a-9609-28e950d5937b",
+      "name": "Actionable Insights",
       "description": {
-        "content": "Execute and monitor scans.",
+        "content": "DSPM cases and remediation.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "21559e9f-4397-4756-8b26-cbb89f5d9efd",
-          "name": "List Scans",
+          "id": "3d7ba76d-578b-431f-a179-16f0c41ad4ae",
+          "name": "List Actionable Insights Cases",
           "request": {
-            "name": "List Scans",
+            "name": "List Actionable Insights Cases",
             "description": {
-              "content": "Retrieve a list of scan executions.",
+              "content": "Fetch all existing security issues. Limit the selection with query parameters that filter by severity, status, asset type, or policy.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "scans"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "eca1280a-d5e3-416b-89cf-7c9c9dbf05e2",
-              "name": "Scans retrieved.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "scans"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4374037b-7bf8-4cd5-b7ee-065c8be67c44",
-          "name": "Start A Scan",
-          "request": {
-            "name": "Start A Scan",
-            "description": {
-              "content": "Trigger a scan based on a scan profile.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "scans"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"scanProfileId\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "1f196a5a-633c-4c20-90a2-dcc4dece064c",
-              "name": "Scan started.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "scans"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"scanProfileId\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b5c2bd00-618d-435e-8d05-704f0137a5b9",
-          "name": "List Parent Scans",
-          "request": {
-            "name": "List Parent Scans",
-            "description": {
-              "content": "Retrieve parent scans with customizable query parameters.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "scans",
-                "parent-scans"
+                "actionable-insights",
+                "all-cases"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -213,12 +28,17 @@
               "query": [
                 {
                   "disabled": false,
-                  "key": "sort",
+                  "key": "filter",
                   "value": "<string>"
                 },
                 {
                   "disabled": false,
                   "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
                   "value": "<integer>"
                 }
               ],
@@ -243,24 +63,28 @@
           },
           "response": [
             {
-              "id": "6d87a93c-9d80-4462-ba6f-872025ee20d3",
-              "name": "Parent scans retrieved.",
+              "id": "df0f110a-bbd3-4f65-83af-1c172e59e93b",
+              "name": "Cases retrieved.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "scans",
-                    "parent-scans"
+                    "actionable-insights",
+                    "all-cases"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [
                     {
-                      "key": "sort",
+                      "key": "filter",
                       "value": "<string>"
                     },
                     {
                       "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
                       "value": "<integer>"
                     }
                   ],
@@ -291,7 +115,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{}",
+              "body": "{\n  \"data\": {\n    \"cases\": [\n      {\n        \"caseId\": \"string\",\n        \"caseStatus\": \"resolved\",\n        \"severityLevel\": \"medium\",\n        \"policyName\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"created_at\": \"1977-05-12T22:21:05.440Z\",\n        \"updated_at\": \"2015-01-18T18:21:37.514Z\",\n        \"auditReason\": \"string\"\n      },\n      {\n        \"caseId\": \"string\",\n        \"caseStatus\": \"resolved\",\n        \"severityLevel\": \"medium\",\n        \"policyName\": \"string\",\n        \"dataSourceName\": \"string\",\n        \"created_at\": \"1953-10-31T14:38:06.042Z\",\n        \"updated_at\": \"2005-03-26T09:32:52.778Z\",\n        \"auditReason\": \"string\"\n      }\n    ]\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -302,19 +126,120 @@
           }
         },
         {
-          "id": "bb5bc31d-3980-4a4d-adc4-4162ac100fca",
-          "name": "Get Scan Status",
+          "id": "990c5807-ed4c-4fbc-a53d-2824f9794ebe",
+          "name": "Bulk Update Actionable Insights Cases",
           "request": {
-            "name": "Get Scan Status",
+            "name": "Bulk Update Actionable Insights Cases",
             "description": {
-              "content": "Check the current status of a specific scan to determine whether it is running or completed.",
+              "content": "Mark issues as resolved or update field values in bulk based on a filter expression.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "scans",
-                ":scan_id",
-                "status"
+                "actionable-insights",
+                "cases:{{actionType}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "862b0a74-f7ea-431a-ab95-1db3969b3080",
+              "name": "Update accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "actionable-insights",
+                    "cases:{{actionType}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<string>\",\n  \"update\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c03a3818-5941-4faa-88bd-f2d47e4c3808",
+          "name": "Update Actionable Insights Case Status",
+          "request": {
+            "name": "Update Actionable Insights Case Status",
+            "description": {
+              "content": "Update the status of a specific case (e.g. resolved) with an audit reason.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "actionable-insights",
+                "case-status",
+                ":caseId"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -325,18 +250,18 @@
                   "disabled": false,
                   "type": "any",
                   "value": "<string>",
-                  "key": "scan_id",
+                  "key": "caseId",
                   "description": "(Required) "
                 }
               ]
             },
             "header": [
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
+            "method": "PATCH",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -345,18 +270,27 @@
                   "value": "{{bearerToken}}"
                 }
               ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"auditReason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             }
           },
           "response": [
             {
-              "id": "10e5c267-3dc1-403a-ac7a-45e08a13f59e",
-              "name": "Scan status retrieved.",
+              "id": "7f174360-dc23-402b-b399-22b2a38b6e4c",
+              "name": "Case status updated.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "scans",
-                    ":scan_id",
-                    "status"
+                    "actionable-insights",
+                    "case-status",
+                    ":caseId"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -367,7 +301,7 @@
                       "disabled": false,
                       "type": "any",
                       "value": "<string>",
-                      "key": "scan_id",
+                      "key": "caseId",
                       "description": "(Required) "
                     }
                   ]
@@ -380,26 +314,30 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"auditReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "text/plain"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"progress\": 6593.572882739428\n}",
+              "body": "",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -417,11 +355,21 @@
       "type": "string",
       "value": "https://sandbox.bigid.tools/api/v1",
       "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "actionType"
     }
   ],
   "info": {
-    "_postman_id": "9f85e9e6-b068-4801-b7ad-e454fa3d13ad",
-    "name": "BigID Authentication Actionable Insights Scans API",
+    "_postman_id": "558d5821-271e-42b4-9069-f12399f1f1a8",
+    "name": "BigID Authentication Actionable Insights API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",

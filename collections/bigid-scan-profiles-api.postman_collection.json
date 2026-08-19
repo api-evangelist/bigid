@@ -1,25 +1,25 @@
 {
   "item": [
     {
-      "id": "b61bdf9a-3b75-4094-8736-1d88b0d70e2d",
-      "name": "Authentication",
+      "id": "1b513da6-41a9-41d7-a3ed-f3d72edbce09",
+      "name": "Scan Profiles",
       "description": {
-        "content": "User and token authentication operations.",
+        "content": "Configure recurring scan profiles.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "c31cca2a-b91a-4cec-82d2-c466901f569f",
-          "name": "Create A User Session",
+          "id": "793de29d-ae67-4f63-82b5-5091c4085861",
+          "name": "Create A Scan Profile",
           "request": {
-            "name": "Create A User Session",
+            "name": "Create A Scan Profile",
             "description": {
-              "content": "Authenticate a user with username and password. Returns an auth_token that is used as a Bearer credential in subsequent requests.",
+              "content": "Create a new scan profile that controls which data sources are scanned and using which template.",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "sessions"
+                "scanProfiles"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -38,10 +38,18 @@
               }
             ],
             "method": "POST",
-            "auth": null,
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -51,135 +59,12 @@
           },
           "response": [
             {
-              "id": "c0f2c99d-5944-4fb9-bd23-6a4fbb81fdf6",
-              "name": "Session created.",
+              "id": "81b69775-fa33-4777-b57c-1e9d2447a8f2",
+              "name": "Scan profile created.",
               "originalRequest": {
                 "url": {
                   "path": [
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"auth_token\": \"string\",\n  \"username\": \"string\",\n  \"firstName\": \"string\",\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9063836f-8e7f-4cff-ad57-79ce40bce98e",
-              "name": "Invalid credentials.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "sessions"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5c67afb7-8308-496c-a508-23dc0ef22ce3",
-          "name": "Refresh Access Token",
-          "request": {
-            "name": "Refresh Access Token",
-            "description": {
-              "content": "Exchange a long-lived user token for a short-lived system token used to authorize calls against the BigID REST API. Pass the user token in the Authorization header.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "refresh-access-token"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "f8d2b9d8-0c3d-43a7-bbd4-e843ae221acc",
-              "name": "System token issued.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "refresh-access-token"
+                    "scanProfiles"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -202,6 +87,118 @@
                   }
                 ],
                 "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78f207c3-e979-46ca-ae32-5dd2ed3468b9",
+          "name": "Get A Scan Profile",
+          "request": {
+            "name": "Get A Scan Profile",
+            "description": {
+              "content": "Retrieve the details of a scan profile by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scanProfiles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "52373d4c-773c-49d9-be87-31b430dd2cfc",
+              "name": "Scan profile retrieved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scanProfiles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
                 "body": {}
               },
               "status": "OK",
@@ -212,48 +209,9 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"success\": true,\n  \"systemToken\": \"string\"\n}",
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataSourceList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scanTemplateId\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"isCustomScanProfile\": \"<boolean>\",\n  \"schedule\": {\n    \"cronExpression\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a7acec67-7763-4397-8d28-605d7eccb438",
-              "name": "Invalid user token.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "refresh-access-token"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -274,8 +232,8 @@
     }
   ],
   "info": {
-    "_postman_id": "e344384f-4fa3-4c52-9b56-c0904d6c09fc",
-    "name": "BigID Actionable Insights Authentication API",
+    "_postman_id": "742acac6-c76d-44df-a938-e1d4146b400a",
+    "name": "BigID Authentication Actionable Insights Scan Profiles API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",

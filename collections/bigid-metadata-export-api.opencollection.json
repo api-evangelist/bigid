@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BigID Authentication Actionable Insights Metadata Export API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Catalog Object Columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sandbox.bigid.tools/api/v1/data-catalog/object-details/columns",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve column-level metadata for catalog objects."
+        },
+        {
+          "info": {
+            "name": "Get Catalog Object Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sandbox.bigid.tools/api/v1/data-catalog/object-details/attributes",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve attribute-level metadata (classifier hits) for unstructured catalog objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

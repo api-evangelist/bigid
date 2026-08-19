@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "BigID Authentication API",
+    "name": "BigID Actionable Insights Authentication API",
     "version": "1.0"
   },
   "items": [

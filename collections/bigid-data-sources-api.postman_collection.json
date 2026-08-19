@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "4cdaf8e0-5afd-4019-8237-810c293891a2",
+      "id": "9f664091-dee4-4575-ad65-b8b5669faa1c",
       "name": "Data Sources",
       "description": {
         "content": "Manage data source connections.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "579f56e9-9f5b-44ef-bd17-38a1308cf4d2",
+          "id": "c3fef1af-ca12-4320-98b4-09558cf8c5c4",
           "name": "List Data Sources",
           "request": {
             "name": "List Data Sources",
@@ -25,17 +25,7 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
+              "variable": []
             },
             "header": [
               {
@@ -56,7 +46,7 @@
           },
           "response": [
             {
-              "id": "14548141-7b9d-4cb2-8350-ff34deec4713",
+              "id": "d8acfccc-ffef-45bc-9385-e89646f4190f",
               "name": "Data sources retrieved.",
               "originalRequest": {
                 "url": {
@@ -67,17 +57,7 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -104,7 +84,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": \"string\",\n  \"statusCode\": 7647,\n  \"data\": {\n    \"ds_connections\": [\n      {\n        \"name\": \"my-mysql-database\",\n        \"type\": \"string\",\n        \"location\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"scope\": \"string\",\n        \"enabled\": \"yes\",\n        \"scanner_group\": \"string\"\n      },\n      {\n        \"name\": \"my-mysql-database\",\n        \"type\": \"string\",\n        \"location\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"scope\": \"string\",\n        \"enabled\": \"yes\",\n        \"scanner_group\": \"string\"\n      }\n    ]\n  }\n}",
+              "body": "{\n  \"status\": \"string\",\n  \"statusCode\": 6042,\n  \"data\": {\n    \"ds_connections\": [\n      {\n        \"name\": \"my-mysql-database\",\n        \"type\": \"string\",\n        \"location\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"scope\": \"string\",\n        \"enabled\": \"no\",\n        \"scanner_group\": \"string\"\n      },\n      {\n        \"name\": \"my-mysql-database\",\n        \"type\": \"string\",\n        \"location\": \"string\",\n        \"username\": \"string\",\n        \"password\": \"string\",\n        \"scope\": \"string\",\n        \"enabled\": \"no\",\n        \"scanner_group\": \"string\"\n      }\n    ]\n  }\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -115,7 +95,7 @@
           }
         },
         {
-          "id": "e6fb75ce-60a6-4e3c-a323-db945f2d312f",
+          "id": "f8267f7f-ff36-4c59-85b3-994a2175c8f5",
           "name": "Create A Data Source",
           "request": {
             "name": "Create A Data Source",
@@ -131,17 +111,7 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
+              "variable": []
             },
             "header": [
               {
@@ -175,7 +145,7 @@
           },
           "response": [
             {
-              "id": "eafc5817-711f-4a3c-8758-ef7475df5442",
+              "id": "83ab968e-bf7f-43e6-b9da-c587fbd8d5f4",
               "name": "Data source created.",
               "originalRequest": {
                 "url": {
@@ -186,17 +156,7 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -242,7 +202,7 @@
           }
         },
         {
-          "id": "bfa227aa-cd0c-4adb-866c-7c76d389a954",
+          "id": "ebc04a71-23f9-4e07-8e64-dd853a68deca",
           "name": "Test A Data Source Connection",
           "request": {
             "name": "Test A Data Source Connection",
@@ -258,17 +218,7 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
+              "variable": []
             },
             "header": [
               {
@@ -302,7 +252,7 @@
           },
           "response": [
             {
-              "id": "30654a47-e3d5-49ae-b137-e105b16186fb",
+              "id": "602bacef-8c1c-43b8-ae67-2332b4553ad0",
               "name": "Connection test executed.",
               "originalRequest": {
                 "url": {
@@ -313,17 +263,7 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -358,7 +298,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\"\n}",
+              "body": "{\n  \"success\": true,\n  \"message\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -369,7 +309,7 @@
           }
         },
         {
-          "id": "ed3aeac0-d765-4c3d-8aa4-f99e998e9f50",
+          "id": "70f1c4e9-8408-492a-983b-c046ede7aae2",
           "name": "Export Data Sources",
           "request": {
             "name": "Export Data Sources",
@@ -387,17 +327,7 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
+              "variable": []
             },
             "header": [
               {
@@ -418,7 +348,7 @@
           },
           "response": [
             {
-              "id": "763c18ee-a0cd-49b7-83c3-d1d7e772f0af",
+              "id": "12d7d934-5047-4644-88f3-d8b0b260deb2",
               "name": "Data sources exported.",
               "originalRequest": {
                 "url": {
@@ -431,256 +361,7 @@
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
-    },
-    {
-      "id": "22e52f89-264c-4d42-afaa-c8d79dcc352c",
-      "name": "Connector Templates",
-      "description": {
-        "content": "Inspect available connector templates.",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "3b17cea6-a34c-449c-9c1e-cc62358979e4",
-          "name": "List Connector Templates",
-          "request": {
-            "name": "List Connector Templates",
-            "description": {
-              "content": "List the connector templates available in this BigID deployment.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ds-templates"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "65306542-8deb-4b73-9ac5-6a0524379c35",
-              "name": "Templates retrieved.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ds-templates"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "84c2e2ea-9c9c-43be-a8d8-ab298fb3aad9",
-          "name": "Get A Connector Template",
-          "request": {
-            "name": "Get A Connector Template",
-            "description": {
-              "content": "Retrieve a connector template for a specific data source type (e.g. rdb-mysql).",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ds-templates",
-                ":type"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "type",
-                  "description": "(Required) The connector template type, e.g. rdb-mysql."
-                },
-                {
-                  "description": {
-                    "content": "",
-                    "type": "text/plain"
-                  },
-                  "type": "any",
-                  "value": "{{deployment}}",
-                  "key": "deployment"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "d753988f-bbec-401d-8c88-7ffe8124bf60",
-              "name": "Template retrieved.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ds-templates",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) The connector template type, e.g. rdb-mysql."
-                    },
-                    {
-                      "description": {
-                        "content": "",
-                        "type": "text/plain"
-                      },
-                      "type": "any",
-                      "value": "{{deployment}}",
-                      "key": "deployment"
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -724,26 +405,17 @@
   "event": [],
   "variable": [
     {
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "tenant",
-      "key": "deployment"
-    },
-    {
       "type": "string",
-      "value": "https://{{deployment}}.bigid.com/api/v1",
+      "value": "https://sandbox.bigid.tools/api/v1",
       "key": "baseUrl"
     }
   ],
   "info": {
-    "_postman_id": "d16154a9-8d68-4779-b65d-51789351bb6a",
-    "name": "BigID Data Sources API",
+    "_postman_id": "33ec5560-3c15-4dc3-aa9f-37f04821dd68",
+    "name": "BigID Authentication Actionable Insights Data Sources API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Programmatically manage data source connections in BigID. Discover available connector templates, test connection settings, create new data sources, and export existing data source configurations. Every action available in the BigID UI for data source onboarding is also exposed via this API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
+      "content": "Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.\n\nContact Support:\n Name: BigID Support\n Email: support@bigid.com",
       "type": "text/plain"
     }
   }

@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "BigID DSAR API",
+    "name": "BigID Authentication Actionable Insights DSAR API",
     "version": "1.0"
   },
   "items": [
@@ -18,7 +18,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://{deployment}.bigid.com/api/v1/sar/profiles",
+            "url": "https://sandbox.bigid.tools/api/v1/sar/profiles",
             "auth": {
               "type": "bearer",
               "token": "{{bearerToken}}"
@@ -33,7 +33,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://{deployment}.bigid.com/api/v1/sar/attributes",
+            "url": "https://sandbox.bigid.tools/api/v1/sar/attributes",
             "params": [
               {
                 "name": "profile_id",
@@ -55,7 +55,7 @@
           },
           "http": {
             "method": "POST",
-            "url": "https://{deployment}.bigid.com/api/v1/sar/reports",
+            "url": "https://sandbox.bigid.tools/api/v1/sar/reports",
             "body": {
               "type": "json",
               "data": "{}"
@@ -74,7 +74,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://{deployment}.bigid.com/api/v1/sar/reports/:requestId/status",
+            "url": "https://sandbox.bigid.tools/api/v1/sar/reports/:requestId/status",
             "params": [
               {
                 "name": "requestId",
@@ -96,7 +96,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://{deployment}.bigid.com/api/v1/sar/reports/:requestId/short-report",
+            "url": "https://sandbox.bigid.tools/api/v1/sar/reports/:requestId/short-report",
             "params": [
               {
                 "name": "requestId",
