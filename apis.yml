@@ -161,6 +161,8 @@ apis:
   description: Cluster analysis operations.
   humanURL: https://developer.bigid.com/api/bigid-api-token-authentication/
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
