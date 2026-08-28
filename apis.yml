@@ -8,6 +8,18 @@ description: >-
   through a REST API rooted at /api/v1 — covering data sources, scans, catalog, cluster analysis, DSPM cases, and DSARs
   — plus an App Framework for building custom apps, a connector framework (Java and REST) for new data sources, and an
   MCP surface for AI agents.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
