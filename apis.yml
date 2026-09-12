@@ -264,6 +264,8 @@ apis:
   - type: Examples
     url: examples/bigid-list-posture-cases-example.json
 common:
+  - type: Website
+    url: https://www.bigid.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/bigid/overview
   - type: AgenticAccess
