@@ -1,0 +1,29 @@
+generated: '2026-09-11'
+method: probed
+source: https://api.bigid.com/mcp
+status: published
+server:
+  name: bigid
+  transport: http
+  url: https://api.bigid.com/mcp
+deployment:
+  mode: remote
+  endpoint: https://api.bigid.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-12 (endpoint found in the provider's own documentation, then probed)
+tools_count: 5
+tools:
+- name: search
+  description: ''
+- name: get_pages
+  description: ''
+- name: list_pages
+  description: ''
+- name: list_changes
+  description: ''
+- name: get_change
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
