@@ -40,6 +40,9 @@ modified: '2026-05-25'
 specificationVersion: '0.23'
 type: Index
 access: 3rd-Party
+x-docs-platform: bump
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-20
 tags:
   - Data Security
   - DSPM
