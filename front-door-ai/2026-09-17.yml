@@ -1,0 +1,36 @@
+# Front Door AI Index — bigid — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: bigid
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.bigid.com
+  final_host: bigid.com
+  ownership: own
+  owner: bigid
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 129
+  host_score: 129
+  density: 63.64
+  words: 2027
+  tiers:
+    agentic: 16
+    core: 113
+    model: 0
+  ambiguous: 14
+  top_terms:
+    AI: 103
+    agent: 8
+    gen ai: 8
+    automation: 5
+    agentic: 4
+    RAG: 3
+    copilot: 3
+    prompts: 3
+    AI agent: 2
+    LLMs: 1
+    inference: 1
+    intelligence: 1

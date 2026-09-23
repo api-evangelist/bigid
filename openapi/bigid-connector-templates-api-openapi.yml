@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BigID Authentication Actionable Insights Connector Templates API
+  title: BigID Authentication Actionable Insights Connector……
   description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
   version: '1.0'
   contact:

@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BigID Authentication Actionable Insights Catalog API
-  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
+  title: BigID Data Catalog API
+  description: Query and export BigID's data catalog — the central inventory of objects, columns, and attributes discovered by BigID scans. Includes endpoints for metadata export, duplicate-data analysis, and column-level cluster similarity lookups.
   version: '1.0'
   contact:
     name: BigID Support
@@ -11,14 +11,11 @@ info:
     name: BigID Terms of Service
     url: https://bigid.com/terms/
 servers:
-- url: https://sandbox.bigid.tools/api/v1
-  description: BigID developer sandbox.
 - url: https://{deployment}.bigid.com/api/v1
   description: Customer-hosted BigID deployment.
   variables:
     deployment:
       default: tenant
-      description: Tenant subdomain assigned by BigID.
 tags:
 - name: Catalog
   description: Browse catalog objects.
@@ -76,15 +73,6 @@ paths:
                 type: object
 components:
   schemas:
-    CatalogResponse:
-      type: object
-      properties:
-        totalRowsCounter:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogObject'
     CatalogObject:
       type: object
       properties:
@@ -111,6 +99,15 @@ components:
         update_date:
           type: string
           format: date-time
+    CatalogResponse:
+      type: object
+      properties:
+        totalRowsCounter:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogObject'
   securitySchemes:
     BearerAuth:
       type: http

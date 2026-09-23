@@ -1,32 +1,49 @@
 {
   "provider": "bigid",
   "sources": [
-    "bigid-actionable-insights-api-openapi.yml",
+    "_original/bigid-cluster-analysis-api-openapi.yml",
+    "_original/bigid-data-catalog-api-openapi.yml",
+    "_original/bigid-data-posture-api-openapi.yml",
     "bigid-authentication-api-openapi.yml",
-    "bigid-catalog-api-openapi.yml",
-    "bigid-clusters-api-openapi.yml",
     "bigid-connector-templates-api-openapi.yml",
     "bigid-data-sources-api-openapi.yml",
     "bigid-dsar-api-openapi.yml",
-    "bigid-metadata-export-api-openapi.yml",
     "bigid-scan-profiles-api-openapi.yml",
     "bigid-scans-api-openapi.yml"
   ],
   "outputs": [
+    "bigid-clusters-api-openapi.yml",
+    "bigid-catalog-api-openapi.yml",
+    "bigid-metadata-export-api-openapi.yml",
     "bigid-actionable-insights-api-openapi.yml",
     "bigid-authentication-api-openapi.yml",
-    "bigid-catalog-api-openapi.yml",
-    "bigid-clusters-api-openapi.yml",
     "bigid-connector-templates-api-openapi.yml",
     "bigid-data-sources-api-openapi.yml",
     "bigid-dsar-api-openapi.yml",
-    "bigid-metadata-export-api-openapi.yml",
     "bigid-scan-profiles-api-openapi.yml",
     "bigid-scans-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "warnings": [
+    "bigid-authentication-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /refresh-access-token post, /sessions post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "bigid-connector-templates-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /ds-templates get, /ds-templates/{type} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "bigid-data-sources-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /ds-connection-test post, /ds-connections get, /ds-connections/file-download/export get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "bigid-dsar-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /sar/attributes get, /sar/profiles get, /sar/reports post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "bigid-scan-profiles-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /scanProfiles post, /scanProfiles/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "bigid-scans-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /scans get, /scans post, /scans/parent-scans get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bigid-cluster-analysis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "bigid-data-catalog-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "bigid-data-posture-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bigid-actionable-insights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bigid-catalog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bigid-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bigid-metadata-export-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

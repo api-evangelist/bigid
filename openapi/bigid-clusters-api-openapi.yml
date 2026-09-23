@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BigID Authentication Actionable Insights Clusters API
-  description: Authenticate against a BigID deployment using either user credentials (username/password) or a long-lived user token. Exchange a user token for a short-lived system token (session token) used to authorize subsequent calls against the BigID REST API.
+  title: BigID Cluster Analysis Clusters API
+  description: Retrieve clusters of similar data identified by BigID's cluster-analysis engine. Clusters group structurally or semantically similar columns and objects across data sources to support deduplication, retention, and minimization workflows.
   version: '1.0'
   contact:
     name: BigID Support
@@ -11,14 +11,11 @@ info:
     name: BigID Terms of Service
     url: https://bigid.com/terms/
 servers:
-- url: https://sandbox.bigid.tools/api/v1
-  description: BigID developer sandbox.
 - url: https://{deployment}.bigid.com/api/v1
   description: Customer-hosted BigID deployment.
   variables:
     deployment:
       default: tenant
-      description: Tenant subdomain assigned by BigID.
 tags:
 - name: Clusters
   description: Cluster analysis operations.
