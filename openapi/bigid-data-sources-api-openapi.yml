@@ -106,20 +106,6 @@ paths:
                 type: object
 components:
   schemas:
-    DataSourceList:
-      type: object
-      properties:
-        status:
-          type: string
-        statusCode:
-          type: integer
-        data:
-          type: object
-          properties:
-            ds_connections:
-              type: array
-              items:
-                $ref: '#/components/schemas/DataSource'
     DataSource:
       type: object
       properties:
@@ -148,6 +134,20 @@ components:
         scanner_group:
           type: string
           description: Scanner group that should perform scans for this source.
+    DataSourceList:
+      type: object
+      properties:
+        status:
+          type: string
+        statusCode:
+          type: integer
+        data:
+          type: object
+          properties:
+            ds_connections:
+              type: array
+              items:
+                $ref: '#/components/schemas/DataSource'
   securitySchemes:
     BearerAuth:
       type: http
