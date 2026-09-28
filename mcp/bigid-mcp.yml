@@ -16,14 +16,26 @@ deployment:
 tools_count: 5
 tools:
 - name: search
-  description: ''
+  description: Search across all documentation pages in the portal by keyword. Returns matching pages
+    with their URL, title, type, and a text excerpt. Use this to find specific endpoints, schemas, or
+    topics when the user asks about a particular feature or
 - name: get_pages
-  description: ''
+  description: Retrieve the full content of one or more documentation pages by their URLs. Returns the
+    full content of the pages, including their titles and types. Use this when you already know which
+    pages you need (e.g., from search results or from list
 - name: list_pages
-  description: ''
+  description: List all child pages under a given URL in the portal hierarchy. Use this to explore and
+    navigate the portal structure. Returns a summary of each child page (URL, title, type and description)
+    without full content. This is the best starting p
 - name: list_changes
-  description: ''
+  description: List visible documentation changes for a given resource. Supported resource types are a
+    Hub, an API documentation, or a specific version. Returns changes ordered from most recent to oldest,
+    with pagination support.
 - name: get_change
-  description: ''
+  description: Retrieve a single visible documentation change by its identifier. Returns the full change
+    details including title, description, markdown diff content, and creation date. Use this after list_changes
+    to read the full content of a specific cha
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
