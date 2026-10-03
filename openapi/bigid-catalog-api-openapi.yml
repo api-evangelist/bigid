@@ -73,6 +73,15 @@ paths:
                 type: object
 components:
   schemas:
+    CatalogResponse:
+      type: object
+      properties:
+        totalRowsCounter:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogObject'
     CatalogObject:
       type: object
       properties:
@@ -99,15 +108,6 @@ components:
         update_date:
           type: string
           format: date-time
-    CatalogResponse:
-      type: object
-      properties:
-        totalRowsCounter:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/CatalogObject'
   securitySchemes:
     BearerAuth:
       type: http

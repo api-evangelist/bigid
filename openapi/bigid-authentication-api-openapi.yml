@@ -65,6 +65,18 @@ paths:
           description: Invalid user token.
 components:
   schemas:
+    SessionRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: The BigID username.
+        password:
+          type: string
+          description: The user's password.
     SessionResponse:
       type: object
       properties:
@@ -91,18 +103,6 @@ components:
         systemToken:
           type: string
           description: Short-lived system token (JWT).
-    SessionRequest:
-      type: object
-      required:
-      - username
-      - password
-      properties:
-        username:
-          type: string
-          description: The BigID username.
-        password:
-          type: string
-          description: The user's password.
   securitySchemes:
     BearerAuth:
       type: http
