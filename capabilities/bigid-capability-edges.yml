@@ -1,0 +1,58 @@
+slug: bigid
+provider: BigID
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: DSAR
+  spec_file: bigid-dsar-api-openapi.yml
+  capability_id: BC-130.50
+  capability_id_l1: BC-130
+  capability_name: Privacy & Data Protection Management
+  confidence: 0.88
+  evidence: GET /sar/profiles  List DSAR Profiles; POST /sar/reports  Create A DSAR Report; GET /sar/reports/{requestId}/status
+  reason: DSAR (data subject access request) profiles and report generation are the operational mechanics
+    of fulfilling data subject rights under GDPR-style regimes, matching Privacy & Data Protection Management.
+- tag: Catalog
+  spec_file: bigid-catalog-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.8
+  evidence: Query and export BigID's data catalog — the central inventory of objects, columns, and attributes
+    discovered by BigID scans.
+  reason: The surface queries a central metadata inventory of data objects and attributes, which is squarely
+    Information & Data Management. Which sub-capability (governance vs architecture) is not pinned down
+    by the operations, so only L1 is given.
+- tag: Actionable Insights
+  spec_file: bigid-actionable-insights-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: Fetch and remediate Data Security Posture Management (DSPM) findings via BigID's actionable
+    insights API. List open security cases, update status in bulk, and resolve individual cases with audit
+    reasons.
+  reason: Operations list and remediate security posture findings ('security cases'), which is security
+    control management/remediation under Cybersecurity Management. Ambiguous between vulnerability remediation
+    and security governance sub-capabilities, so only the L1 is asserted.
+- tag: Clusters
+  spec_file: bigid-clusters-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: Clusters group structurally or semantically similar columns and objects across data sources
+    to support deduplication, retention, and minimization workflows.
+  reason: Single list operation over similarity clusters used for deduplication and minimisation of data
+    assets — a data management/quality concern. Thin surface (one GET), so confidence is moderate and
+    no sub-capability is claimed.
