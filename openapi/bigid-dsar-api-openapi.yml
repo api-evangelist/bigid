@@ -149,6 +149,15 @@ paths:
                 type: string
 components:
   schemas:
+    DsarProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
     DsarRequest:
       type: object
       required:
@@ -168,15 +177,6 @@ components:
                 type: string
         skipAlertOnNoData:
           type: boolean
-    DsarProfile:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
   securitySchemes:
     BearerAuth:
       type: http
