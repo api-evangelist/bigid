@@ -53,3 +53,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: bigid-slack-own
+  label: Slack (own)
+  partner: slack
+  partner_name: Slack (own)
+  category: Slack app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://slack.com/marketplace/A03TYV1C3GE-bigid-discovery
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
