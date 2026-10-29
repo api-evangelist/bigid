@@ -1,4 +1,4 @@
-# BigID (bigid)
+# BigID
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,215 +66,197 @@
 
 BigID is a New York City-headquartered data security platform that combines Data Security Posture Management (DSPM), Data Loss Prevention (DLP), access governance, AI security & governance (AISPM), privacy automation, and a unified Data & AI Catalog. Founded in 2016 by Dimitri Sirota and Nimrod Vax, BigID exposes every action available in its UI through a REST API rooted at /api/v1 — covering data sources, scans, catalog, cluster analysis, DSPM cases, and DSARs — plus an App Framework for building custom apps, a connector framework (Java and REST) for new data sources, and an MCP surface for AI agents.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bigid/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bigid/refs/heads/main/apis.yml)
+**Areas:** Data Security · DSPM · DLP · Privacy · AI Security · Data Catalog · DSAR · Data Discovery · Compliance
 
-## Scope
+## BigID on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for BigID is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bigid/](https://apis.io/providers/bigid/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Data Security
-- DSPM
-- DLP
-- Privacy
-- AI Security
-- Data Catalog
-- DSAR
-- Data Discovery
-- Compliance
+- [BigID Authentication API](https://apis.io/apis/bigid/bigid-authentication-api/) — Authenticate against a BigID deployment using either username/password or a long-lived user token. Exchange a user token for a short-lived system token…
+- [BigID Data Sources API](https://apis.io/apis/bigid/bigid-data-sources-api/) — Programmatically manage data source connections in BigID. List, create, test, and export data sources, and inspect the catalog of available connector…
+- [BigID Scans API](https://apis.io/apis/bigid/bigid-scans-api/) — Configure and execute BigID scans. Create scan profiles to control which data sources are scanned and using which classifier template, then start and…
+- [BigID DSAR API](https://apis.io/apis/bigid/bigid-dsar-api/) — Run Data Subject Access Requests (DSARs) and retrieve the resulting reports. Inspect available DSAR profiles and identifier attributes, submit new DSAR…
+- [BigID Actionable Insights API](https://apis.io/apis/bigid/bigid-actionable-insights-api/) — DSPM cases and remediation.
+- [BigID Catalog API](https://apis.io/apis/bigid/bigid-catalog-api/) — Browse catalog objects.
+- [BigID Clusters API](https://apis.io/apis/bigid/bigid-clusters-api/) — Cluster analysis operations.
+- [BigID Connector Templates API](https://apis.io/apis/bigid/bigid-connector-templates-api/) — Inspect available connector templates.
+- [BigID Metadata Export API](https://apis.io/apis/bigid/bigid-metadata-export-api/) — Export catalog metadata.
+- [BigID Scan Profiles API](https://apis.io/apis/bigid/bigid-scan-profiles-api/) — Configure recurring scan profiles.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### BigID Authentication API
+Model Context Protocol servers that expose the API to agents.
 
-Authenticate against a BigID deployment using either username/password or a long-lived user token. Exchange a user token for a short-lived system token (JWT) used to authorize subsequent REST API calls.
+- [bigid](https://apis.io/servers/bigid/bigid/)
 
-- **Human URL:** [https://developer.bigid.com/api/bigid-api-token-authentication/](https://developer.bigid.com/api/bigid-api-token-authentication/)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Authentication
-- Sessions
-- Tokens
+- [Bigid Agentic Access](https://apis.io/agentic-access/bigid/bigid-agentic-access/)
 
-#### Properties
+#### JSON Schema (3)
 
-- [Documentation](https://developer.bigid.com/api/bigid-api-user-authentication/)
-- [Documentation](https://developer.bigid.com/api/bigid-api-token-authentication/)
-- [OpenAPI](openapi/bigid-authentication-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-authentication-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-authentication-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/bigid-create-session-example.json)
+The data models the API reads and writes.
 
-### BigID Data Sources API
+- [BigID Actionable Insights Case](https://apis.io/schemas/bigid/bigid-case/)
+- [BigID Catalog Object](https://apis.io/schemas/bigid/bigid-catalog-object/)
+- [BigID Data Source](https://apis.io/schemas/bigid/bigid-data-source/)
 
-Programmatically manage data source connections in BigID. List, create, test, and export data sources, and inspect the catalog of available connector templates (e.g. rdb-mysql, s3-v2, snowflake, sharepoint-online).
+#### JSON-LD (1)
 
-- **Human URL:** [https://developer.bigid.com/api/data-source-connections-api-tutorial/](https://developer.bigid.com/api/data-source-connections-api-tutorial/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Bigid Context](https://apis.io/jsonld/bigid/bigid-context/)
 
-- Data Sources
-- Connectors
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://developer.bigid.com/api/data-source-connections-api-tutorial/)
-- [Documentation](https://developer.bigid.com/api/bigid-api-add-data-source-tutorial/)
-- [OpenAPI](openapi/bigid-data-sources-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-data-sources-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-data-sources-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/bigid-data-source-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/bigid-list-data-sources-example.json)
+- [Bigid Vocabulary](https://apis.io/vocabularies/bigid/bigid-vocabulary/)
 
-### BigID Scans API
+#### Examples (4)
 
-Configure and execute BigID scans. Create scan profiles to control which data sources are scanned and using which classifier template, then start and monitor scan executions and parent-scan rollups.
+Example requests and responses.
 
-- **Human URL:** [https://developer.bigid.com/api/scan-profiles-api-tutorial/](https://developer.bigid.com/api/scan-profiles-api-tutorial/)
+- [Bigid Create Dsar Report Example](https://apis.io/examples/bigid/bigid-create-dsar-report-example/)
+- [Bigid Create Session Example](https://apis.io/examples/bigid/bigid-create-session-example/)
+- [Bigid List Data Sources Example](https://apis.io/examples/bigid/bigid-list-data-sources-example/)
+- [Bigid List Posture Cases Example](https://apis.io/examples/bigid/bigid-list-posture-cases-example/)
 
-#### Tags
+#### Collections (23)
 
-- Scans
-- Scan Profiles
+Postman and Open Collection request collections.
 
-#### Properties
+- [BigID Authentication Actionable Insights API](https://apis.io/collections/bigid/open-bigid-actionable-insights-api/)
+- [BigID Actionable Insights Authentication API](https://apis.io/collections/bigid/open-bigid-authentication-api/)
+- [BigID Authentication Actionable Insights Catalog API](https://apis.io/collections/bigid/open-bigid-catalog-api/)
+- [BigID Cluster Analysis API](https://apis.io/collections/bigid/open-bigid-cluster-analysis-api/)
+- [BigID Authentication Actionable Insights Clusters API](https://apis.io/collections/bigid/open-bigid-clusters-api/)
+- [BigID Authentication Actionable Insights Connector Templates API](https://apis.io/collections/bigid/open-bigid-connector-templates-api/)
+- [BigID Data Catalog API](https://apis.io/collections/bigid/open-bigid-data-catalog-api/)
+- [BigID Data Posture API](https://apis.io/collections/bigid/open-bigid-data-posture-api/)
+- [BigID Authentication Actionable Insights Data Sources API](https://apis.io/collections/bigid/open-bigid-data-sources-api/)
+- [BigID Authentication Actionable Insights DSAR API](https://apis.io/collections/bigid/open-bigid-dsar-api/)
+- [BigID Authentication Actionable Insights Metadata Export API](https://apis.io/collections/bigid/open-bigid-metadata-export-api/)
+- [BigID Authentication Actionable Insights Scan Profiles API](https://apis.io/collections/bigid/open-bigid-scan-profiles-api/)
+- [BigID Authentication Actionable Insights Scans API](https://apis.io/collections/bigid/open-bigid-scans-api/)
+- [BigID Authentication Actionable Insights API](https://apis.io/collections/bigid/postman-bigid-actionable-insights-api/)
+- [BigID Actionable Insights Authentication API](https://apis.io/collections/bigid/postman-bigid-authentication-api/)
+- [BigID Authentication Actionable Insights Catalog API](https://apis.io/collections/bigid/postman-bigid-catalog-api/)
+- [BigID Authentication Actionable Insights Clusters API](https://apis.io/collections/bigid/postman-bigid-clusters-api/)
+- [BigID Authentication Actionable Insights Connector Templates API](https://apis.io/collections/bigid/postman-bigid-connector-templates-api/)
+- [BigID Authentication Actionable Insights Data Sources API](https://apis.io/collections/bigid/postman-bigid-data-sources-api/)
+- [BigID Authentication Actionable Insights DSAR API](https://apis.io/collections/bigid/postman-bigid-dsar-api/)
+- [BigID Authentication Actionable Insights Metadata Export API](https://apis.io/collections/bigid/postman-bigid-metadata-export-api/)
+- [BigID Authentication Actionable Insights Scan Profiles API](https://apis.io/collections/bigid/postman-bigid-scan-profiles-api/)
+- [BigID Authentication Actionable Insights Scans API](https://apis.io/collections/bigid/postman-bigid-scans-api/)
 
-- [Documentation](https://developer.bigid.com/api/scan-profiles-api-tutorial/)
-- [Documentation](https://developer.bigid.com/api/scan-insights-api-tutorial/)
-- [OpenAPI](openapi/bigid-scans-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-scans-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-scans-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### BigID Data Catalog API
+Spectral rulesets for the provider's contracts.
 
-Query and export BigID's data catalog — the central inventory of objects, columns, and attributes discovered by BigID scans. Includes metadata export, duplicate-detection, and cluster-similar-column lookups.
+- [BigID — jsonschema rules](https://apis.io/rules/bigid/bigid-jsonschema-spectral-rules/)
+- [BigID API Rules](https://apis.io/rules/bigid/bigid-rules/)
 
-- **Human URL:** [https://developer.bigid.com/api/bigid-api-metadata-export-tutorial/](https://developer.bigid.com/api/bigid-api-metadata-export-tutorial/)
+#### Security (4)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Catalog
-- Metadata
-- Duplicates
+- [Bigid Authentication](https://apis.io/security/bigid/bigid-authentication/)
+- [Bigid Domain Security](https://apis.io/security/bigid/bigid-domain-security/)
+- [Bigid Trust Center](https://apis.io/security/bigid/bigid-trust-center/)
+- [Bigid Vulnerability Disclosure](https://apis.io/security/bigid/bigid-vulnerability-disclosure/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://developer.bigid.com/api/bigid-api-metadata-export-tutorial/)
-- [Documentation](https://developer.bigid.com/api/bigid-api-duplicate-data-tutorial/)
-- [OpenAPI](openapi/bigid-data-catalog-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-data-catalog-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-data-catalog-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/bigid-catalog-object-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Published plans, tiers and prices.
 
-### BigID Cluster Analysis API
+- [Bigid Plans Pricing](https://apis.io/plans/bigid/bigid-plans-pricing/)
 
-Retrieve clusters of similar data identified by BigID's cluster-analysis engine. Clusters group structurally or semantically similar columns and objects across data sources to support deduplication, retention, and minimization workflows.
+#### Rate limits (1)
 
-- **Human URL:** [https://developer.bigid.com/api/cluster-analysis-api-tutorial/](https://developer.bigid.com/api/cluster-analysis-api-tutorial/)
+Published request limits.
 
-#### Tags
+- [Bigid Rate Limits](https://apis.io/rate-limits/bigid/bigid-rate-limits/)
 
-- Clusters
-- Analytics
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://developer.bigid.com/api/cluster-analysis-api-tutorial/)
-- [OpenAPI](openapi/bigid-cluster-analysis-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-cluster-analysis-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-cluster-analysis-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bigid Finops](https://apis.io/finops/bigid/bigid-finops/)
 
-### BigID Data Posture API
+## Where to find this API
 
-Fetch and remediate Data Security Posture Management (DSPM) findings via BigID's actionable insights API. List open cases, bulk-update them, and resolve individual cases with audit reasons.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://developer.bigid.com/api/data-posture-api-tutorial/](https://developer.bigid.com/api/data-posture-api-tutorial/)
-
-#### Tags
-
-- DSPM
-- Actionable Insights
-- Security
-
-#### Properties
-
-- [Documentation](https://developer.bigid.com/api/data-posture-api-tutorial/)
-- [OpenAPI](openapi/bigid-data-posture-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-data-posture-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-data-posture-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/bigid-case-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/bigid-list-posture-cases-example.json)
-
-### BigID DSAR API
-
-Run Data Subject Access Requests (DSARs) and retrieve the resulting reports. Inspect available DSAR profiles and identifier attributes, submit new DSAR scans, poll status, and download short or full reports in JSON or CSV.
-
-- **Human URL:** [https://developer.bigid.com/api/bigid-api-dsar-tutorial/](https://developer.bigid.com/api/bigid-api-dsar-tutorial/)
-
-#### Tags
-
-- DSAR
-- Privacy
-
-#### Properties
-
-- [Documentation](https://developer.bigid.com/api/bigid-api-dsar-tutorial/)
-- [OpenAPI](openapi/bigid-dsar-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bigid-dsar-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bigid-dsar-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/bigid-create-dsar-report-example.json)
-
-## Common Properties
-
-- [Developer Portal](https://developer.bigid.com/)
-- [Getting Started](https://developer.bigid.com/guides/get-started/)
-- [API Reference](https://developer.bigid.com/api/bigid-api/)
+- [Website](https://www.bigid.com/)
 - [Documentation](https://developer.bigid.com/apps/building-a-bigid-app/)
-- [Documentation](https://developer.bigid.com/connectors/what-is-a-bigid-connector/)
-- [Documentation](https://developer.bigid.com/llms/llms/)
-- [GitHub Organization](https://github.com/bigexchange)
-- [SDK](https://github.com/bigexchange/sdk-javascript)
-- [SDK](https://github.com/bigexchange/consent-sdk-ios)
-- [Quickstart](https://github.com/bigexchange/quickstart-simple-ts)
-- [Quickstart](https://github.com/bigexchange/quickstart-utility-dspm-ts)
-- [Code Examples](https://github.com/bigexchange/app-framework-helloworld-app)
-- [Code Examples](https://github.com/bigexchange/helm-template)
-- [Integrations](https://github.com/bigexchange/bigid-azure-key-vault-app)
-- [Integrations](https://github.com/bigexchange/bigid-aws-control-tower)
-- [Integrations](https://github.com/bigexchange/aws-security-hub)
-- [Integrations](https://github.com/bigexchange/content)
-- [Integrations](https://github.com/bigexchange/gtm-consent-template)
-- [Portal](https://bigid.com/)
+- [Getting started](https://developer.bigid.com/guides/get-started/)
+- [API reference](https://developer.bigid.com/api/bigid-api/)
 - [Blog](https://bigid.com/blog/)
-- [Hub](https://bigid.com/about/)
-- [Contact](https://bigid.com/contact/)
-- [Terms of Service](https://bigid.com/terms/)
-- [Privacy Policy](https://bigid.com/privacy-notice/)
-- [Legal](https://bigid.com/cookies/)
 - [Compliance](https://bigid.com/sub-processors/)
-- [Compliance](https://bigid.com/certifications-and-assessments/)
-- [LinkedIn](https://www.linkedin.com/company/bigid/)
-- [Spectral Rules](rules/bigid-rules.yml)
-- [Vocabulary](vocabulary/bigid-vocabulary.yml)
-- [JSON-LD](json-ld/bigid-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/bigid-plans-pricing.yml)
-- [Rate Limits](rate-limits/bigid-rate-limits.yml)
-- [Fin Ops](finops/bigid-finops.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Terms of service](https://bigid.com/terms/)
+- [Privacy policy](https://bigid.com/privacy-notice/)
+- [GitHub](https://github.com/bigexchange)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 52.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 60.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 60.7 |
+| Access clarity | 52.6 |
+
+**Agent readiness 30.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bigid/](https://apis.io/providers/bigid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BigID: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bigid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
